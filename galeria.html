@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería - Catamarán 360</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logocatamaran.jpg" alt="Catamarán 360 Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="embarcaciones.html">Embarcaciones</a></li>
+                    <li><a href="tours_san_blas.html">Tours en San Blas</a></li>
+                    <li><a href="galeria.html" class="active">Galería</a></li>
+                    <li><a href="reserva.html">Reserva</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <a href="https://wa.me/50760933457" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <div class="language-selector">
+                    <div class="current-lang">
+                        <span>Español</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="es">
+                            <img src="img/flags/es.png" alt="Español">
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="lang-option" data-lang="en">
+                            <img src="img/flags/en.png" alt="English">
+                            <span>English</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner galeria-banner">
+        <div class="container">
+            <h1>Galería</h1>
+            <p>Explora nuestras mejores imágenes de San Blas</p>
+        </div>
+    </section>
+
+    <section class="gallery-full">
+        <div class="container">
+            <h2 class="section-title">Momentos Inolvidables</h2>
+            
+            <ul class="gallery-filter">
+                <li class="active" data-filter="all">Todos</li>
+                <li data-filter="catamaranes">Catamaranes</li>
+                <li data-filter="islas">Islas</li>
+                <li data-filter="experiencias">Experiencias</li>
+                <li data-filter="vida-a-bordo">Vida a Bordo</li>
+            </ul>
+            
+            <div class="gallery-grid-full">
+                <div class="gallery-item" data-category="catamaranes">
+                    <img src="img/galeria_barcos.jpg" alt="Catamarán navegando">
+                    <div class="gallery-overlay">
+                        <h3>Navegación</h3>
+                        <p>Catamarán 360 en aguas cristalinas</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="img/galeria_islas.JPG" alt="Isla paradisíaca">
+                    <div class="gallery-overlay">
+                        <h3>Isla Desierta</h3>
+                        <p>Una de las más de 365 islas de San Blas</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="experiencias">
+                    <img src="img/galeria_snorkeling_2.jpg" alt="snorkel en San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Snorkel</h3>
+                        <p>Explorando la vida marina</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vida-a-bordo">
+                    <img src="img/galeria_desayuno.jpg" alt="Desayuno a bordo">
+                    <div class="gallery-overlay">
+                        <h3>Desayuno a Bordo</h3>
+                        <p>Comida fresca con vistas increíbles</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="img/galeria_amigos_4.jpg" alt="Atardecer en San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Atardecer</h3>
+                        <p>Momentos mágicos en el Caribe</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="experiencias">
+                    <img src="img/galeria_kayak.jpg" alt="Kayak en San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Kayak</h3>
+                        <p>Aventuras acuáticas para todos</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="catamaranes">
+                    <img src="img/galeria_barcos_3.jpg" alt="La Perla velero">
+                    <div class="gallery-overlay">
+                        <h3>La Perla</h3>
+                        <p>Nuestro velero clásico</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vida-a-bordo">
+                    <img src="img/galeria_sancho_2.jpg" alt="Relajación en cubierta">
+                    <div class="gallery-overlay">
+                        <h3>Relajación</h3>
+                        <p>Momentos de paz en alta mar</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="img/galeria_islas_2.JPG" alt="Playa de arena blanca">
+                    <div class="gallery-overlay">
+                        <h3>Playas Vírgenes</h3>
+                        <p>Arena blanca y aguas turquesas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>¿Te gustaría vivir estas experiencias?</h2>
+            <p>Reserva ahora y crea tus propios recuerdos en San Blas</p>
+            <a href="reserva.html" class="cta-btn primary">Reserva tu experiencia</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logocatamaran.jpg" alt="Catamarán 360 Logo">
+                    <p>Tu Aventura en las Islas San Blas - Panamá</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="embarcaciones.html">Embarcaciones</a></li>
+                        <li><a href="tours_san_blas.html">Tours San Blas</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="reserva.html">Reserva</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contáctanos</h3>
+                    <p><i class="fab fa-instagram"></i> Instagram: @catamaran360</p>
+                    <p><i class="far fa-envelope"></i> Correo: catamaran360@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Punto de encuentro: Ciudad de Panamá / Puerto Cartí</p>
+                    <a href="https://wa.me/50760933457" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> 50760933457
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Catamarán 360. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="https://wa.me/50760933457" class="floating-btn whatsapp">
+            <i class="fa-solid fa-comments"></i>
+        </a>
+    </div>
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-image" src="/placeholder.svg" alt="Imagen ampliada">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+ 
+</body>
+</html>

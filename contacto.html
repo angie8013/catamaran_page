@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Catamarán 360</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="img/logo.png" alt="Catamarán 360 Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="embarcaciones.html">Embarcaciones</a></li>
+                    <li><a href="tours_san_blas.html">Tours en San Blas</a></li>
+                    <li><a href="galeria.html">Galería</a></li>
+                    <li><a href="reserva.html">Reserva</a></li>
+                    <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <a href="https://wa.me/50760933457" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <div class="language-selector">
+                    <div class="current-lang">
+                        <span>Español</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="es">
+                            <img src="img/flags/es.png" alt="Español">
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="lang-option" data-lang="en">
+                            <img src="img/flags/en.png" alt="English">
+                            <span>English</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner contacto-banner">
+        <div class="container">
+            <h1>Contacto</h1>
+            <p>Estamos aquí para responder tus preguntas</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-intro">
+                <h2 class="section-title">Ponte en Contacto</h2>
+                <p>¿Tienes preguntas sobre nuestras experiencias, embarcaciones o disponibilidad? Estamos aquí para ayudarte. Completa el formulario a continuación o utiliza cualquiera de nuestros canales de contacto directo.</p>
+            </div>
+            
+            <div class="contact-content">
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo*</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono / WhatsApp</label>
+                                <input type="tel" id="telefono" name="telefono">
+                            </div>
+                            <div class="form-group">
+                                <label for="asunto">Asunto*</label>
+                                <select id="asunto" name="asunto" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="informacion">Información general</option>
+                                    <option value="reserva">Consulta sobre reservas</option>
+                                    <option value="precios">Precios y disponibilidad</option>
+                                    <option value="otro">Otro asunto</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Mensaje*</label>
+                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="cta-btn primary">Enviar Mensaje</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div class="contact-info-container">
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <h3>Información de Contacto</h3>
+                        </div>
+                        <div class="contact-card-body">
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>WhatsApp</h4>
+                                    <p>+507 6093 3457</p>
+                                    <p>Respuesta rápida 9am - 7pm</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="far fa-envelope"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Correo Electrónico</h4>
+                                    <p>catamaran360@gmail.com</p>
+                                    <p>Respuesta en 24-48 horas</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fab fa-instagram"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Instagram</h4>
+                                    <p>@catamaran360</p>
+                                    <p>Síguenos para ver nuestras aventuras</p>
+                                </div>
+                            </div>
+                            <div class="contact-item">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-text">
+                                    <h4>Punto de Encuentro</h4>
+                                    <p>Ciudad de Panamá / Puerto Cartí</p>
+                                    <p>Coordenadas exactas al reservar</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-hours">
+                        <h3>Horario de Atención</h3>
+                        <ul>
+                            <li><span>Lunes - Viernes:</span> 9:00 AM - 7:00 PM</li>
+                            <li><span>Sábado:</span> 9:00 AM - 5:00 PM</li>
+                            <li><span>Domingo:</span> 10:00 AM - 3:00 PM</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title">Ubicación</h2>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.0123456789!2d-79.5!3d9.0!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMDAnMDAuMCJOIDc5wrAzMCcwMC4wIlc!5e0!3m2!1ses!2spa!4v1620000000000!5m2!1ses!2spa" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+            <div class="map-info">
+                <p><i class="fas fa-info-circle"></i> El punto de encuentro exacto se proporcionará después de la confirmación de la reserva.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Preguntas Frecuentes</h2>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Cómo llego a San Blas desde Ciudad de Panamá?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Puedes llegar a San Blas en vehículo 4x4 (aproximadamente 2.5 horas) o en avioneta (30 minutos). Ofrecemos servicio de transporte terrestre por un costo adicional de $50 USD por persona.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Qué debo llevar para mi experiencia en San Blas?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recomendamos traer: protector solar biodegradable, repelente de insectos, sombrero, gafas de sol, traje de baño, toalla, ropa ligera, calzado para agua, cámara (preferiblemente resistente al agua) y efectivo para gastos adicionales.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Hay cobertura de internet en San Blas?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>La cobertura es limitada en el archipiélago. En algunas islas hay señal de telefonía móvil, pero es intermitente. Recomendamos desconectarse y disfrutar de la experiencia.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>¿Es seguro viajar a San Blas?</h3>
+                        <span class="faq-toggle"><i class="fas fa-plus"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Sí, San Blas es un destino seguro. El archipiélago está administrado por el pueblo Guna, que mantiene un estricto control sobre el turismo. Nuestras embarcaciones cumplen con todos los protocolos de seguridad marítima.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="img/logo.png" alt="Catamarán 360 Logo">
+                    <p>Tu Aventura en las Islas San Blas - Panamá</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="embarcaciones.html">Embarcaciones</a></li>
+                        <li><a href="tours_san_blas.html">Tours San Blas</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="reserva.html">Reserva</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contáctanos</h3>
+                    <p><i class="fab fa-instagram"></i> Instagram: @catamaran360</p>
+                    <p><i class="far fa-envelope"></i> Correo: catamaran360@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Punto de encuentro: Ciudad de Panamá / Puerto Cartí</p>
+                    <a href="https://wa.me/50760933457" class="whatsapp-btn">
+                        <i class="fab fa-whatsapp"></i> 50760933457
+                    </a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Catamarán 360. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="floating-buttons">
+        <a href="https://www.airbnb.com" class="floating-btn airbnb">
+            <i class="fab fa-airbnb"></i>
+        </a>
+        <a href="https://wa.me/50760933457" class="floating-btn whatsapp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        // FAQ Toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                const answer = item.querySelector('.faq-answer');
+                const toggle = item.querySelector('.faq-toggle');
+                
+                question.addEventListener('click', function() {
+                    answer.classList.toggle('active');
+                    toggle.innerHTML = answer.classList.contains('active') ? 
+                        '<i class="fas fa-minus"></i>' : '<i class="fas fa-plus"></i>';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
