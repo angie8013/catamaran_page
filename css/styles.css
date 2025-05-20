@@ -480,6 +480,36 @@
   }
   
   /* About Preview Section */
+
+  .about-preview,
+.about-section,
+.about-story {
+  padding: 80px 0;
+}
+
+.about-content,
+.story-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text h2,
+.story-text h2 {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.about-text h2:after,
+.story-text h2:after {
+  margin-left: 0;
+}
+
+.about-text p,
+.story-text p {
+  margin-bottom: 20px;
+}
 /* Estilos para la sección Quiénes Somos con las nuevas imágenes */
 .about-section {
   padding: 80px 0;
@@ -502,7 +532,6 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 100%;
 }
 
 /* Marcos de las imágenes */
@@ -513,8 +542,7 @@
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   border: 8px solid white;
-  flex: 1;
-  max-height: 350px;
+  height: calc(50% - 10px);
 }
 
 .about-image-frame:first-child {
@@ -557,7 +585,6 @@
   flex: 1.5;
   min-width: 300px;
   position: relative;
-  padding-top: 60px;
 }
 
 /* Nuevo diseño elegante para la insignia de experiencia */
@@ -757,7 +784,10 @@
   font-size: 0.9rem;
   margin-bottom: 0;
 }
-
+/* Script para igualar alturas */
+.js-equal-heights {
+  display: none;
+}
   /* Gallery Preview */
   .gallery-preview,
   .gallery-full {
@@ -1079,13 +1109,48 @@
   
   /* Embarcaciones Page */
 
-  /* Añadir al final del archivo CSS existente */
+/* Añade esto a tu archivo CSS */
 
-/* Estilos para la sección de embarcaciones */
+/* Contenedor principal para asegurar alineación */
+.boat-container {
+  display: flex;
+  align-items: stretch;
+}
+
+/* Contenedor de la imagen/carrusel */
 .boat-image-container {
   position: relative;
+  width: 100%;
+}
+
+/* Contenedor de la información */
+.boat-info-container {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  padding: 0 8px;
+}
+
+/* Título del barco */
+.boat-title {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+/* Característica especial */
+.boat-special-feature {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 128, 128, 0.8);
+  color: white;
+  padding: 1rem;
+}
+
+/* Contenedor del botón para asegurar alineación */
+.boat-button-container {
+  margin-top: auto;
 }
 
 /* Estilos mejorados para las características especiales */
@@ -1213,7 +1278,6 @@
     background-color: rgba(255, 193, 7, 0.1);
     border-left: 4px solid var(--accent-color);
     padding: 15px;
-    margin-bottom: 30px;
   }
   
   .special-feature h3 {
@@ -1337,6 +1401,8 @@
     border-radius: var(--border-radius);
     margin-top: 30px;
     display: inline-block;
+        max-width: 1200px;
+    margin-left: 30px;
   }
   
   .schedule-info h3 {
@@ -2130,9 +2196,8 @@
     background-color: var(--light-text);
     padding: 25px;
     border-radius: var(--border-radius);
-    margin-top: 40px;
     display: inline-block;
-    width: 100%;
+    width: 95%;
     box-shadow: var(--box-shadow);
   }
   
