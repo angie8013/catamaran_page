@@ -496,102 +496,18 @@ function isMobileDevice() {
   return (window.innerWidth < 768) || 
          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
-// Función para mantener el tamaño de las imágenes en la sección de experiencias
+// Función para aplicar un tamaño uniforme a todas las imágenes en la sección de experiencias
 function fixExperienceImagesSize() {
-  // Verificar si estamos en la página de Tours San Blas
-  const experienceContent = document.querySelector('.experience-content');
-  if (!experienceContent) return;
-  
-  // Guardar las dimensiones originales de todas las imágenes al cargar la página
-  const experienceImages = document.querySelectorAll('.experience-image img');
-  const originalDimensions = {};
-  
-  experienceImages.forEach(function(img, index) {
-    // Usar un ID único para cada imagen basado en su src o índice
-    const imgId = img.src.split('/').pop() || 'img-' + index;
-    
-    // Guardar dimensiones originales
-    originalDimensions[imgId] = {
-      width: img.offsetWidth,
-      height: img.offsetHeight
-    };
-    
-    // Establecer dimensiones explícitas en la imagen
-    img.style.width = originalDimensions[imgId].width + 'px';
-    img.style.height = originalDimensions[imgId].height + 'px';
+  const allImages = document.querySelectorAll('.experience-image img');
+
+  allImages.forEach(function(img) {
+    img.style.width = '500px';
+    img.style.height = '650px';
     img.style.objectFit = 'cover';
-  });
-  
-  // Añadir evento a todos los botones "Ver más detalles"
-  const toggleButtons = document.querySelectorAll('.toggle-details-btn');
-  
-  toggleButtons.forEach(function(button) {
-    button.addEventListener('click', function() {
-      // Obtener el ID del contenedor de detalles
-      const targetId = this.getAttribute('data-target');
-      const detailsContainer = document.getElementById(targetId);
-      
-      // Verificar si estamos expandiendo o colapsando
-      const isExpanding = detailsContainer.classList.contains('hidden');
-      
-      // Alternar la clase 'hidden' en el contenedor de detalles
-      detailsContainer.classList.toggle('hidden');
-      
-      // Cambiar el ícono del botón
-      const icon = this.querySelector('i');
-      if (icon) {
-        icon.classList.toggle('fa-chevron-down');
-        icon.classList.toggle('fa-chevron-up');
-      }
-      
-      // Si estamos expandiendo, asegurarnos de que las imágenes mantengan su tamaño
-      if (isExpanding) {
-        // Dar tiempo para que el DOM se actualice
-        setTimeout(function() {
-          // Volver a aplicar las dimensiones originales a todas las imágenes
-          experienceImages.forEach(function(img, index) {
-            const imgId = img.src.split('/').pop() || 'img-' + index;
-            
-            if (originalDimensions[imgId]) {
-              img.style.width = originalDimensions[imgId].width + 'px';
-              img.style.height = originalDimensions[imgId].height + 'px';
-              img.style.objectFit = 'cover';
-            }
-          });
-        }, 10);
-      }
-    });
-  });
-  
-  // También manejar los cambios de pestaña
-  const tabButtons = document.querySelectorAll('.experience-tabs button');
-  
-  tabButtons.forEach(function(tabButton) {
-    tabButton.addEventListener('click', function() {
-      // Dar tiempo para que el DOM se actualice después de cambiar de pestaña
-      setTimeout(function() {
-        // Volver a aplicar las dimensiones originales a todas las imágenes visibles
-        const visibleImages = document.querySelectorAll('.tab-content.active .experience-image img');
-        
-        visibleImages.forEach(function(img, index) {
-          const imgId = img.src.split('/').pop() || 'img-' + index;
-          
-          if (originalDimensions[imgId]) {
-            img.style.width = originalDimensions[imgId].width + 'px';
-            img.style.height = originalDimensions[imgId].height + 'px';
-            img.style.objectFit = 'cover';
-          }
-        });
-      }, 10);
-    });
+    img.style.maxWidth = '100%';
+    img.style.display = 'block';
   });
 }
-
-// Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-  // Inicializar la función para fijar el tamaño de las imágenes
-  fixExperienceImagesSize();
-});
 
 // También ejecutar cuando la ventana termine de cargar
 window.addEventListener('load', fixExperienceImagesSize);
