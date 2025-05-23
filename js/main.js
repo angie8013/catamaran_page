@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const slider = document.querySelector(".hero-slider")
   const slides = document.querySelectorAll(".slide")
   const prevBtn = document.querySelector(".prev-btn")
-  const nextBtn = document.querySelector(".next-btn")    
+  const nextBtn = document.querySelector(".next-btn")
 
   let currentSlide = 0
 
@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   }
 
- 
+
   // Funcionalidad "Ver más detalles" para las experiencias
   const toggleDetailsBtns = document.querySelectorAll(".toggle-details-btn")
 
@@ -346,15 +346,15 @@ function alignBoatElements() {
   // Verificar si estamos en la página de embarcaciones
   const boatDetailsSection = document.querySelector('.boat-details');
   if (!boatDetailsSection) return;
-  
+
   // Detectar si estamos en un dispositivo móvil
   const isMobile = window.innerWidth < 768;
-  
+
   // Obtener todas las tarjetas de barcos
   const boatCards = document.querySelectorAll('.boat-card');
-  
+
   // Para cada tarjeta de barco
-  boatCards.forEach(function(card) {
+  boatCards.forEach(function (card) {
     // 1. Obtener los elementos que necesitamos alinear
     const imageContainer = card.querySelector('.boat-image-container');
     const boatSlider = card.querySelector('.boat-image.boat-slider');
@@ -362,14 +362,14 @@ function alignBoatElements() {
     const title = boatInfo.querySelector('h2');
     const button = boatInfo.querySelector('.cta-btn.primary');
     const specialFeature = card.querySelector('.special-feature.desktop-feature');
-    
+
     // Si no encontramos alguno de los elementos esenciales, salir
     if (!imageContainer || !boatSlider || !boatInfo || !title || !button || !specialFeature) {
       return;
     }
-    
+
     // 2. ALINEAR ELEMENTOS SEGÚN EL DISPOSITIVO
-    
+
     if (isMobile) {
       // En móviles, restablecer los estilos para evitar problemas
       title.style.marginTop = '';
@@ -379,32 +379,32 @@ function alignBoatElements() {
       specialFeature.style.justifyContent = '';
     } else {
       // En escritorio, aplicar la alineación precisa
-      
+
       // Obtener las posiciones actuales para el título
       const sliderTop = boatSlider.getBoundingClientRect().top;
       const titleTop = title.getBoundingClientRect().top;
-      
+
       // Calcular el ajuste necesario para el título
       const titleAdjustment = sliderTop - titleTop;
-      
+
       // Aplicar el ajuste si es necesario (más de 1px de diferencia)
       if (Math.abs(titleAdjustment) > 1) {
         title.style.marginTop = titleAdjustment + 'px';
       }
-      
+
       // Obtener las posiciones actuales para la característica especial
       const buttonBottom = button.getBoundingClientRect().bottom;
       const featureBottom = specialFeature.getBoundingClientRect().bottom;
-      
+
       // Calcular el ajuste necesario para la característica especial
       const featureAdjustment = buttonBottom - featureBottom;
-      
+
       // Aplicar el ajuste si es necesario
       if (Math.abs(featureAdjustment) > 1) {
         // Ajustar la altura de la característica especial
         const currentHeight = specialFeature.offsetHeight;
         specialFeature.style.height = (currentHeight + featureAdjustment) + 'px';
-        
+
         // Centrar el contenido verticalmente
         specialFeature.style.display = 'flex';
         specialFeature.style.flexDirection = 'column';
@@ -418,7 +418,7 @@ function alignBoatElements() {
 function ensureAlignment() {
   // Ejecutar inmediatamente
   alignBoatElements();
-  
+
   // Y también con pequeños retrasos para asegurar que todo esté cargado
   setTimeout(alignBoatElements, 100);
   setTimeout(alignBoatElements, 500);
@@ -431,59 +431,59 @@ function handleOrientationChange() {
 }
 
 // Ejecutar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
   // Verificar si estamos en la página de embarcaciones
   if (document.querySelector('.boat-details')) {
     // Ejecutar la alineación inicial
     ensureAlignment();
-    
+
     // Volver a alinear cuando cambie el tamaño de la ventana
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
       // Cancelar el timeout anterior para evitar múltiples ejecuciones
       clearTimeout(resizeTimeout);
-      
+
       // Establecer un nuevo timeout
       resizeTimeout = setTimeout(alignBoatElements, 250);
     });
-    
+
     // Manejar cambios de orientación en dispositivos móviles
     window.addEventListener('orientationchange', handleOrientationChange);
-    
+
     // Volver a alinear después de que las imágenes se carguen
     window.addEventListener('load', ensureAlignment);
-    
+
     // Volver a alinear cuando se haga clic en los controles del carrusel
     const carouselControls = document.querySelectorAll('.boat-prev-btn, .boat-next-btn, .boat-dot');
-    carouselControls.forEach(function(control) {
-      control.addEventListener('click', function() {
+    carouselControls.forEach(function (control) {
+      control.addEventListener('click', function () {
         // Solo aplicar en escritorio
         if (window.innerWidth >= 768) {
           setTimeout(alignBoatElements, 50);
         }
       });
     });
-    
+
     // Crear un observador de mutaciones para detectar cambios en el DOM
-    const observer = new MutationObserver(function(mutations) {
+    const observer = new MutationObserver(function (mutations) {
       // Solo ejecutar si hay cambios relevantes y estamos en escritorio
       if (window.innerWidth >= 768) {
-        const relevantChanges = mutations.some(function(mutation) {
-          return mutation.type === 'attributes' || 
-                 mutation.type === 'childList' || 
-                 (mutation.target.classList && 
-                  (mutation.target.classList.contains('boat-slide') || 
-                   mutation.target.classList.contains('active')));
+        const relevantChanges = mutations.some(function (mutation) {
+          return mutation.type === 'attributes' ||
+            mutation.type === 'childList' ||
+            (mutation.target.classList &&
+              (mutation.target.classList.contains('boat-slide') ||
+                mutation.target.classList.contains('active')));
         });
-        
+
         if (relevantChanges) {
           setTimeout(alignBoatElements, 50);
         }
       }
     });
-    
-    observer.observe(document.querySelector('.boat-details'), { 
-      childList: true, 
+
+    observer.observe(document.querySelector('.boat-details'), {
+      childList: true,
       subtree: true,
       attributes: true,
       attributeFilter: ['class', 'style']
@@ -493,14 +493,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Función auxiliar para detectar si estamos en un dispositivo móvil
 function isMobileDevice() {
-  return (window.innerWidth < 768) || 
-         /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  return (window.innerWidth < 768) ||
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
 // Función para aplicar un tamaño uniforme a todas las imágenes en la sección de experiencias
 function fixExperienceImagesSize() {
   const allImages = document.querySelectorAll('.experience-image img');
 
-  allImages.forEach(function(img) {
+  allImages.forEach(function (img) {
     img.style.width = '500px';
     img.style.height = '650px';
     img.style.objectFit = 'cover';
@@ -511,3 +511,56 @@ function fixExperienceImagesSize() {
 
 // También ejecutar cuando la ventana termine de cargar
 window.addEventListener('load', fixExperienceImagesSize);
+
+//=============== Variables iniciales y generación de sesión ========================
+const toggleBtn = document.getElementById("chatbot-toggle");
+const chatbot = document.getElementById("chatbot-container");
+const messages = document.getElementById("chatbot-messages");
+const input = document.getElementById("user-input");
+
+// Verifica si ya hay una session_id, si no, crea una nueva
+let session_id = localStorage.getItem("chatbot_session_id");
+if (!session_id) {
+  session_id = "session-" + Math.random().toString(36).substr(2, 9);
+  localStorage.setItem("chatbot_session_id", session_id);
+}
+
+//================ Toggle para mostrar/ocultar chatbot ===============================
+toggleBtn.addEventListener("click", () => {
+  chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+});
+
+//======================= Función para enviar al webhook de n8n ========================
+async function sendMessage() {
+  const question = input.value.trim();
+  if (!question) return;
+
+  appendMessage("Tú", question);
+  input.value = "";
+
+  try {
+    const response = await fetch("https://n8n.magnificapec.com/webhook/2700c999-c71d-431c-86a9-597c5ad21675", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        session_id: session_id,
+        pregunta: question
+      })
+    });
+
+    const data = await response.json();
+    appendMessage("Bot", data.respuetsa || "No se recibió respuesta.");
+  } catch (error) {
+    appendMessage("Bot", "Hubo un error al conectar con el servidor.");
+  }
+}
+
+//======================= Mostrar mensajes en la ventana ==============================
+function appendMessage(sender, text) {
+  const msg = document.createElement("div");
+  msg.textContent = `${sender}: ${text}`;
+  msg.style.margin = "8px 0";
+  msg.style.fontSize = "14px";
+  messages.appendChild(msg);
+  messages.scrollTop = messages.scrollHeight;
+}

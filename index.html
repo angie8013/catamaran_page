@@ -278,13 +278,86 @@
             </div>
         </div>
     </footer>
+    <!-- <button id="chatbot-button">💬</button>
 
+    <iframe id="chatbot-frame" src="https://n8n.magnificapec.com/webhook/2700c999-c71d-431c-86a9-597c5ad21675"
+        allow="microphone; camera">
+    </iframe>
     <div class="floating-buttons">
         <a href="https://instagram.com/catamaran360" class="floating-btn whatsapp">
             <i class="fa-solid fa-comments"></i>
         </a>
-    </div>
+    </div> -->
+    <div>
+        <style>
+            #chatbot-container {
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                width: 350px;
+                height: 500px;
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 12px;
+                display: none;
+                flex-direction: column;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+                overflow: hidden;
+                z-index: 1000;
+            }
 
+            #chatbot-messages {
+                flex: 1;
+                padding: 10px;
+                overflow-y: auto;
+            }
+
+            #chatbot-input {
+                display: flex;
+                border-top: 1px solid #ddd;
+            }
+
+            #chatbot-input input {
+                flex: 1;
+                border: none;
+                padding: 10px;
+                font-size: 14px;
+            }
+
+            #chatbot-input button {
+                border: none;
+                background-color: #007bff;
+                color: white;
+                padding: 10px 15px;
+                cursor: pointer;
+            }
+
+            #chatbot-toggle {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                background-color: #007bff;
+                color: white;
+                border: none;
+                font-size: 30px;
+                cursor: pointer;
+                z-index: 1001;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+        </style>
+        <div id="chatbot-container">
+            <div id="chatbot-messages"></div>
+            <div id="chatbot-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
+                <button onclick="sendMessage()">➤</button>
+            </div>
+        </div>
+
+        <button id="chatbot-toggle">💬</button>
+    </div>
 
     <script src="js/main.js"></script>
 </body>
