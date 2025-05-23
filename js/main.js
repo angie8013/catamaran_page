@@ -511,24 +511,49 @@ function fixExperienceImagesSize() {
 
 // También ejecutar cuando la ventana termine de cargar
 window.addEventListener('load', fixExperienceImagesSize);
-
 //=============== Variables iniciales y generación de sesión ========================
-const toggleBtn = document.getElementById("chatbot-toggle");
-const chatbot = document.getElementById("chatbot-container");
-const messages = document.getElementById("chatbot-messages");
-const input = document.getElementById("user-input");
-
-// Verifica si ya hay una session_id, si no, crea una nueva
 let session_id = localStorage.getItem("chatbot_session_id");
 if (!session_id) {
   session_id = "session-" + Math.random().toString(36).substr(2, 9);
   localStorage.setItem("chatbot_session_id", session_id);
 }
 
+const toggleBtn = document.getElementById("chatbot-toggle");
+const chatbot = document.getElementById("chatbot-container");
+const messages = document.getElementById("chatbot-messages");
+const input = document.getElementById("user-input");
+
 //================ Toggle para mostrar/ocultar chatbot ===============================
-toggleBtn.addEventListener("click", () => {
-  chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
-});
+if (toggleBtn) {
+  toggleBtn.addEventListener("click", () => {
+    chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
+  });
+}
+
+//======================= Cargar historial de mensajes ================================
+function loadChatHistory() {
+  const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
+  chatHistory.forEach(({ sender, text }) => {
+    const msg = document.createElement("div");
+    msg.textContent = `${sender}: ${text}`;
+    msg.style.margin = "8px 0";
+    msg.style.fontSize = "14px";
+    messages.appendChild(msg);
+  });
+  messages.scrollTop = messages.scrollHeight;
+}
+
+// Llamar a esta función una vez cargado el DOM
+document.addEventListener("DOMContentLoaded", loadChatHistory);
+
+if (input) {
+  input.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault(); // evita que se haga un salto de línea
+      sendMessage();
+    }
+  });
+}
 
 //======================= Función para enviar al webhook de n8n ========================
 async function sendMessage() {
@@ -549,7 +574,7 @@ async function sendMessage() {
     });
 
     const data = await response.json();
-    appendMessage("Bot", data.respuetsa || "No se recibió respuesta.");
+    appendMessage("Bot", data.respuesta || "No se recibió respuesta.");
   } catch (error) {
     appendMessage("Bot", "Hubo un error al conectar con el servidor.");
   }
@@ -563,4 +588,9 @@ function appendMessage(sender, text) {
   msg.style.fontSize = "14px";
   messages.appendChild(msg);
   messages.scrollTop = messages.scrollHeight;
+
+  // Guardar historial
+  const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
+  chatHistory.push({ sender, text });
+  localStorage.setItem("chatbot_history", JSON.stringify(chatHistory));
 }
