@@ -542,7 +542,7 @@ function loadChatHistory() {
   });
   messages.scrollTop = messages.scrollHeight;
 }
-
+//======================= Guardar historial de mensajes ==============================
 // Llamar a esta función una vez cargado el DOM
 document.addEventListener("DOMContentLoaded", loadChatHistory);
 
