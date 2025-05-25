@@ -511,48 +511,158 @@ function fixExperienceImagesSize() {
 
 // También ejecutar cuando la ventana termine de cargar
 window.addEventListener('load', fixExperienceImagesSize);
+
 //=============== Variables iniciales y generación de sesión ========================
 let session_id = localStorage.getItem("chatbot_session_id");
+console.log("Session ID:", session_id);
 if (!session_id) {
   session_id = "session-" + Math.random().toString(36).substr(2, 9);
   localStorage.setItem("chatbot_session_id", session_id);
 }
 
+// Variables del DOM
 const toggleBtn = document.getElementById("chatbot-toggle");
 const chatbot = document.getElementById("chatbot-container");
 const messages = document.getElementById("chatbot-messages");
 const input = document.getElementById("user-input");
+const closeBtn = document.getElementById("chatbot-close");
+const sendBtn = document.getElementById("send-btn");
+const badge = document.getElementById("notification-badge");
 
-//================ Toggle para mostrar/ocultar chatbot ===============================
-if (toggleBtn) {
-  toggleBtn.addEventListener("click", () => {
-    chatbot.style.display = chatbot.style.display === "flex" ? "none" : "flex";
-  });
+// Variable para controlar el estado del chatbot
+let isOpen = false;
+let messageCount = 0;
+
+//================ Event Listeners ===============================
+document.addEventListener("DOMContentLoaded", () => {
+  initializeChatbot();
+  loadChatHistory();
+  
+  // Mostrar badge de notificación después de 2 segundos
+  setTimeout(() => {
+    showNotificationBadge();
+  }, 2000);
+});
+
+function initializeChatbot() {
+  // Toggle button
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      toggleChat();
+    });
+  }
+
+  // Close button
+  if (closeBtn) {
+    closeBtn.addEventListener("click", () => {
+      closeChat();
+    });
+  }
+
+  // Send button
+  if (sendBtn) {
+    sendBtn.addEventListener("click", () => {
+      sendMessage();
+    });
+  }
+
+  // Input field
+  if (input) {
+    input.addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+
+    // Focus effect
+    input.addEventListener("focus", () => {
+      input.parentElement.classList.add("input-focused");
+    });
+
+    input.addEventListener("blur", () => {
+      input.parentElement.classList.remove("input-focused");
+    });
+  }
+}
+
+//================ Funciones de Toggle del Chatbot ===============================
+function toggleChat() {
+  if (isOpen) {
+    closeChat();
+  } else {
+    openChat();
+    hideNotificationBadge();
+  }
+}
+
+function openChat() {
+  if (!chatbot) return;
+  
+  chatbot.classList.remove('chatbot-hidden');
+  
+  setTimeout(() => {
+    chatbot.classList.add('chatbot-visible');
+    if (input) input.focus();
+  }, 10);
+  
+  isOpen = true;
+  
+  // Agregar clase al body para prevenir scroll
+  document.body.classList.add('chatbot-open');
+}
+
+function closeChat() {
+  if (!chatbot) return;
+  
+  chatbot.classList.remove('chatbot-visible');
+  
+  setTimeout(() => {
+    chatbot.classList.add('chatbot-hidden');
+  }, 300);
+  
+  isOpen = false;
+  
+  // Remover clase del body
+  document.body.classList.remove('chatbot-open');
+}
+
+//======================= Funciones de Notificación ==============================
+function showNotificationBadge() {
+  if (badge && !isOpen) {
+    badge.classList.remove('hidden');
+    badge.textContent = '1';
+  }
+}
+
+function hideNotificationBadge() {
+  if (badge) {
+    badge.classList.add('hidden');
+  }
+}
+
+function updateNotificationBadge() {
+  if (badge && !isOpen) {
+    const unreadCount = parseInt(badge.textContent) || 0;
+    badge.textContent = unreadCount + 1;
+    badge.classList.remove('hidden');
+  }
 }
 
 //======================= Cargar historial de mensajes ================================
 function loadChatHistory() {
   const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
-  chatHistory.forEach(({ sender, text }) => {
-    const msg = document.createElement("div");
-    msg.textContent = `${sender}: ${text}`;
-    msg.style.margin = "8px 0";
-    msg.style.fontSize = "14px";
-    messages.appendChild(msg);
-  });
-  messages.scrollTop = messages.scrollHeight;
-}
-//======================= Guardar historial de mensajes ==============================
-// Llamar a esta función una vez cargado el DOM
-document.addEventListener("DOMContentLoaded", loadChatHistory);
-
-if (input) {
-  input.addEventListener("keypress", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault(); // evita que se haga un salto de línea
-      sendMessage();
-    }
-  });
+  
+  // Si no hay historial, mostrar mensaje de bienvenida
+  if (chatHistory.length === 0) {
+    appendMessageToDOM("Bot", "¡Hola! Soy tu asistente virtual de Catamarán 360. ¿En qué puedo ayudarte hoy? 🚤", false);
+  } else {
+    chatHistory.forEach(({ sender, text }) => {
+      appendMessageToDOM(sender, text, false);
+    });
+  }
+  
+  scrollToBottom();
 }
 
 //======================= Función para enviar al webhook de n8n ========================
@@ -560,8 +670,14 @@ async function sendMessage() {
   const question = input.value.trim();
   if (!question) return;
 
+  // Deshabilitar input mientras se procesa
+  setInputState(false);
+  
   appendMessage("Tú", question);
   input.value = "";
+
+  // Mostrar indicador de escritura
+  showTypingIndicator();
 
   try {
     const response = await fetch("https://n8n.magnificapec.com/webhook/2700c999-c71d-431c-86a9-597c5ad21675", {
@@ -573,24 +689,219 @@ async function sendMessage() {
       })
     });
 
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+
     const data = await response.json();
-    appendMessage("Bot", data.respuesta || "No se recibió respuesta.");
+    
+    // Simular delay para mejor UX
+    setTimeout(() => {
+      hideTypingIndicator();
+      appendMessage("Bot", data.respuesta || "No se recibió respuesta.");
+      setInputState(true);
+    }, 800);
+    
   } catch (error) {
-    appendMessage("Bot", "Hubo un error al conectar con el servidor.");
+    console.error("Error en sendMessage:", error);
+    hideTypingIndicator();
+    appendMessage("Bot", "Hubo un error al conectar con el servidor. Por favor, intenta nuevamente.");
+    setInputState(true);
+  }
+}
+
+//======================= Funciones de Estado del Input ==============================
+function setInputState(enabled) {
+  if (input) {
+    input.disabled = !enabled;
+    input.style.opacity = enabled ? '1' : '0.7';
+  }
+  if (sendBtn) {
+    sendBtn.disabled = !enabled;
+    sendBtn.style.opacity = enabled ? '1' : '0.7';
   }
 }
 
 //======================= Mostrar mensajes en la ventana ==============================
 function appendMessage(sender, text) {
-  const msg = document.createElement("div");
-  msg.textContent = `${sender}: ${text}`;
-  msg.style.margin = "8px 0";
-  msg.style.fontSize = "14px";
-  messages.appendChild(msg);
-  messages.scrollTop = messages.scrollHeight;
+  appendMessageToDOM(sender, text, true);
+  
+  // Si el chatbot está cerrado y es un mensaje del bot, mostrar notificación
+  if (!isOpen && sender === "Bot") {
+    updateNotificationBadge();
+  }
+}
 
-  // Guardar historial
-  const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
-  chatHistory.push({ sender, text });
-  localStorage.setItem("chatbot_history", JSON.stringify(chatHistory));
+function appendMessageToDOM(sender, text, saveToHistory = true) {
+  if (!messages) return;
+  
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `message ${sender === 'Tú' ? 'user' : 'bot'}-message`;
+  
+  const avatar = document.createElement('div');
+  avatar.className = 'message-avatar';
+  avatar.textContent = sender === 'Tú' ? '👤' : '🤖';
+  
+  const content = document.createElement('div');
+  content.className = 'message-content';
+  content.textContent = text;
+  
+  messageDiv.appendChild(avatar);
+  messageDiv.appendChild(content);
+  
+  // Animación de entrada
+  messageDiv.style.opacity = '0';
+  messageDiv.style.transform = 'translateY(10px)';
+  
+  messages.appendChild(messageDiv);
+  
+  // Trigger animation
+  setTimeout(() => {
+    messageDiv.style.opacity = '1';
+    messageDiv.style.transform = 'translateY(0)';
+    messageDiv.style.transition = 'all 0.3s ease-out';
+  }, 10);
+  
+  scrollToBottom();
+  messageCount++;
+
+  // Guardar historial solo si se especifica
+  if (saveToHistory) {
+    saveMessageToHistory(sender, text);
+  }
+}
+
+function saveMessageToHistory(sender, text) {
+  try {
+    const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
+    chatHistory.push({ sender, text, timestamp: Date.now() });
+    
+    // Limitar historial a últimos 50 mensajes
+    if (chatHistory.length > 50) {
+      chatHistory.splice(0, chatHistory.length - 50);
+    }
+    
+    localStorage.setItem("chatbot_history", JSON.stringify(chatHistory));
+  } catch (error) {
+    console.error("Error guardando historial:", error);
+  }
+}
+
+//======================= Indicador de escritura ====================================
+function showTypingIndicator() {
+  // Remover indicador existente si existe
+  hideTypingIndicator();
+  
+  const typingDiv = document.createElement('div');
+  typingDiv.className = 'message bot-message typing-indicator';
+  typingDiv.id = 'typing-indicator';
+  
+  const avatar = document.createElement('div');
+  avatar.className = 'message-avatar';
+  avatar.textContent = '🤖';
+  
+  const dotsContainer = document.createElement('div');
+  dotsContainer.className = 'typing-dots';
+  
+  for (let i = 0; i < 3; i++) {
+    const dot = document.createElement('div');
+    dot.className = 'typing-dot';
+    dotsContainer.appendChild(dot);
+  }
+  
+  typingDiv.appendChild(avatar);
+  typingDiv.appendChild(dotsContainer);
+  
+  if (messages) {
+    messages.appendChild(typingDiv);
+    scrollToBottom();
+  }
+}
+
+function hideTypingIndicator() {
+  const typingIndicator = document.getElementById('typing-indicator');
+  if (typingIndicator) {
+    typingIndicator.remove();
+  }
+}
+
+//======================= Funciones de Utilidad ====================================
+function scrollToBottom() {
+  if (messages) {
+    messages.scrollTop = messages.scrollHeight;
+  }
+}
+
+function clearChatHistory() {
+  try {
+    localStorage.removeItem("chatbot_history");
+    if (messages) {
+      messages.innerHTML = '';
+    }
+    loadChatHistory();
+  } catch (error) {
+    console.error("Error limpiando historial:", error);
+  }
+}
+
+// Función para limpiar sesión (útil para testing)
+function resetChatSession() {
+  try {
+    localStorage.removeItem("chatbot_session_id");
+    localStorage.removeItem("chatbot_history");
+    location.reload();
+  } catch (error) {
+    console.error("Error reseteando sesión:", error);
+  }
+}
+
+//======================= Función existente para imágenes ========================
+function fixExperienceImagesSize() {
+  // Tu código existente para arreglar el tamaño de las imágenes
+  // Mantén aquí tu implementación original
+  console.log("Fixing experience images size...");
+}
+
+//======================= Funciones de Accesibilidad ============================
+// Soporte para navegación con teclado
+document.addEventListener('keydown', (e) => {
+  // Escape para cerrar chatbot
+  if (e.key === 'Escape' && isOpen) {
+    closeChat();
+  }
+  
+  // Ctrl/Cmd + K para abrir chatbot
+  if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+    e.preventDefault();
+    if (!isOpen) {
+      openChat();
+    }
+  }
+});
+
+//======================= Manejo de Errores Globales ============================
+window.addEventListener('error', (e) => {
+  console.error('Error en chatbot:', e.error);
+});
+
+//======================= Funciones Públicas para Debugging ============================
+// Estas funciones están disponibles en la consola para debugging
+window.chatbotDebug = {
+  clearHistory: clearChatHistory,
+  resetSession: resetChatSession,
+  getSessionId: () => session_id,
+  getMessageCount: () => messageCount,
+  isOpen: () => isOpen,
+  openChat: openChat,
+  closeChat: closeChat
+};
+
+//======================= Inicialización Final ============================
+// Asegurar que todo esté listo cuando el DOM esté completamente cargado
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('Chatbot Catamarán 360 inicializado correctamente');
+  });
+} else {
+  console.log('Chatbot Catamarán 360 inicializado correctamente');
 }
