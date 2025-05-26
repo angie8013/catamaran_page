@@ -303,21 +303,23 @@
     padding: 0 20px;
   }
   
-  .slide-title {
-    font-size: 5rem;
+.slide-title {
+    /* Tamaño responsive basado en tu 5rem original */
+    font-size: clamp(2rem, 8vw, 5rem);
     margin-bottom: 2rem;
     white-space: nowrap;
     color: white;
     font-weight: 600;
-  }
-  
-  .slide-subtitle {
-    font-size: 2rem;
+}
+
+.slide-subtitle {
+    /* Tamaño responsive basado en tu 2rem original */
+    font-size: clamp(0.8rem, 3.2vw, 2rem);
     margin-bottom: 0.5rem;
     font-weight: bold;
     color: white;
-  }
-  
+}
+
   /* Si quieres eliminar los estilos anteriores */
    /*
   .slide-content h1 {
@@ -1073,43 +1075,55 @@
     z-index: 1;
   }
   
-  .page-banner h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-  }
-  
-  .page-banner p {
-    font-size: 1.2rem;
-  }
+.page-banner h1 {
+    font-family: "Prompt", sans-serif;
+    /* Tamaño grande y bold como en la imagen */
+    font-size: clamp(1.8rem, 6vw, 4rem);
+    font-weight: 700;
+    color: white;
+    text-align: center;
+    margin-bottom: clamp(0.5rem, 2vw, 1rem);
+    line-height: 1.2;
+    /* Sombra para mejor contraste */
+}
+
+.page-banner p {
+    font-family: "Prompt", sans-serif;
+    /* Tamaño más pequeño que el título pero visible */
+    font-size: clamp(1rem, 3vw, 1.8rem);
+    font-weight: 400;
+    color: white;
+    text-align: center;
+    margin-bottom: 0;
+    line-height: 1.4;
+}
   
   /* Banner Images */
   .embarcaciones-banner {
-    background-image: url("../img/embarcaciones/catamaran/baño.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   .experiencias-banner {
-    background-image: url("../img/experiencias-banner.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   .galeria-banner {
-    background-image: url("../img/galeria-banner.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   .reserva-banner {
-    background-image: url("../img/reserva-banner.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   .nosotros-banner {
-    background-image: url("../img/nosotros-banner.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   .contacto-banner {
-    background-image: url("../img/contacto-banner.jpg");
+    background-image: url("../img/galeria_islas.JPG");
   }
   
   /* Embarcaciones Page */
-
-/* Añade esto a tu archivo CSS */
 
 /* Contenedor principal para asegurar alineación */
 .boat-container {
@@ -3317,4 +3331,190 @@
   .about-features .feature {
     width: 100%;
   }
+}
+/* Móviles grandes (como el de tu imagen) */
+@media screen and (max-width: 480px) {
+    .slide-title {
+        font-size: clamp(1.6rem, 6vw, 2.5rem);
+        margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
+        /* Permitir wrap solo si es necesario */
+        white-space: normal;
+        text-align: center;
+    }
+    
+    .slide-subtitle {
+        font-size: clamp(0.8rem, 3vw, 1.2rem);
+        margin-bottom: 0.4rem;
+        text-align: center;
+        /* Mejor espaciado para textos largos */
+        line-height: 1.2;
+        /* Padding lateral para evitar que toque los bordes */
+        padding: 0 10px;
+    }
+    
+    /* Contenedor del slide para mejor centrado */
+    .slide-content {
+        padding: 0 15px;
+        max-width: 90%;
+    }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 360px) {
+    .slide-title {
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
+        margin-bottom: clamp(0.6rem, 2.5vw, 1rem);
+    }
+    
+    .slide-subtitle {
+        font-size: clamp(0.7rem, 2.8vw, 1rem);
+        margin-bottom: 0.3rem;
+        padding: 0 8px;
+    }
+}
+
+/* Ajuste para pantallas muy altas (como la de tu imagen) */
+@media screen and (min-height: 700px) and (max-width: 480px) {
+    .slide-title {
+        font-size: clamp(2rem, 6.5vw, 2.8rem);
+        margin-bottom: clamp(1rem, 3.5vw, 1.8rem);
+    }
+    
+    .slide-subtitle {
+        font-size: clamp(0.9rem, 3.2vw, 1.3rem);
+    }
+}
+
+/* Orientación landscape en móviles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .slide-title {
+        font-size: clamp(1.2rem, 4vw, 1.8rem);
+        margin-bottom: 0.5rem;
+    }
+    
+    .slide-subtitle {
+        font-size: clamp(0.6rem, 2vw, 0.9rem);
+        margin-bottom: 0.3rem;
+    }
+}
+
+/* Tablets grandes y laptops pequeñas */
+@media screen and (max-width: 1024px) {
+    .page-banner h1 {
+        font-size: clamp(1.6rem, 5.5vw, 3.2rem);
+        margin-bottom: clamp(0.4rem, 1.8vw, 0.8rem);
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.9rem, 2.8vw, 1.5rem);
+    }
+    
+    .page-banner .container {
+        padding: 0 20px;
+    }
+}
+
+/* Tablets */
+@media screen and (max-width: 768px) {
+    .page-banner h1 {
+        font-size: clamp(1.4rem, 5vw, 2.5rem);
+        margin-bottom: clamp(0.4rem, 1.5vw, 0.7rem);
+        font-weight: 700;
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.8rem, 2.5vw, 1.2rem);
+        font-weight: 400;
+    }
+    
+    .page-banner .container {
+        padding: 0 25px;
+    }
+}
+
+/* Móviles grandes */
+@media screen and (max-width: 480px) {
+    .page-banner h1 {
+        font-size: clamp(1.2rem, 4.5vw, 2rem);
+        margin-bottom: clamp(0.3rem, 1.2vw, 0.6rem);
+        line-height: 1.1;
+        padding: 0 10px;
+        font-weight: 700;
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.7rem, 2.2vw, 1rem);
+        line-height: 1.3;
+        padding: 0 10px;
+        font-weight: 400;
+    }
+    
+    .page-banner .container {
+        padding: 0 15px;
+    }
+}
+
+/* Móviles pequeños */
+@media screen and (max-width: 360px) {
+    .page-banner h1 {
+        font-size: clamp(1.1rem, 4vw, 1.7rem);
+        margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
+        padding: 0 8px;
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.65rem, 2vw, 0.9rem);
+        padding: 0 8px;
+    }
+    
+    .page-banner .container {
+        padding: 0 12px;
+    }
+}
+
+/* Orientación landscape en móviles */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .page-banner h1 {
+        font-size: clamp(1rem, 3.5vw, 1.5rem);
+        margin-bottom: clamp(0.2rem, 0.8vw, 0.4rem);
+        line-height: 1;
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+        line-height: 1.2;
+    }
+}
+
+/* Ajuste para pantallas muy altas en móvil */
+@media screen and (min-height: 700px) and (max-width: 480px) {
+    .page-banner h1 {
+        font-size: clamp(1.4rem, 5vw, 2.2rem);
+        margin-bottom: clamp(0.4rem, 1.5vw, 0.8rem);
+    }
+    
+    .page-banner p {
+        font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+    }
+}
+
+/* Mejoras adicionales para mantener el estilo de la imagen */
+@media screen and (max-width: 768px) {
+    .page-banner {
+        /* Padding vertical adecuado */
+        padding-top: clamp(2rem, 5vw, 4rem);
+        padding-bottom: clamp(2rem, 5vw, 4rem);
+    }
+    
+    .page-banner h1 {
+        /* Mantener el peso bold en todos los tamaños */
+        font-weight: 700;
+        letter-spacing: 0.01em;
+    }
+    
+    .page-banner p {
+        /* Peso normal para el subtítulo */
+        font-weight: 400;
+        letter-spacing: 0.005em;
+    }
 }

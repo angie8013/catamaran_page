@@ -31,9 +31,6 @@
                 </ul>
             </nav>
             <div class="contact-info">
-                <a href="https://wa.me/50760933457" class="whatsapp-btn">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
                 <div class="language-selector">
                     <div class="current-lang">
                         <span>Español</span>
@@ -41,11 +38,11 @@
                     </div>
                     <div class="lang-dropdown">
                         <a href="#" class="lang-option active" data-lang="es">
-                            <img src="img/flags/es.png" alt="Español">
+                            <img src="img/banderas/Bandera_de_España.svg.webp" alt="Español">
                             <span>Español</span>
                         </a>
                         <a href="#" class="lang-option" data-lang="en">
-                            <img src="img/flags/en.png" alt="English">
+                            <img src="img/banderas/Flag_of_the_United_Kingdom_(1-2).svg" alt="English">
                             <span>English</span>
                         </a>
                     </div>
@@ -782,9 +779,6 @@
                     <p><i class="fab fa-instagram"></i> Instagram: @catamaran360</p>
                     <p><i class="far fa-envelope"></i> Correo: catamaran360@gmail.com</p>
                     <p><i class="fas fa-map-marker-alt"></i> Punto de encuentro: Ciudad de Panamá / Puerto Cartí</p>
-                    <a href="https://wa.me/50760933457" class="whatsapp-btn">
-                        <i class="fab fa-whatsapp"></i> 50760933457
-                    </a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -792,29 +786,37 @@
                 <div class="social-links">
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#"><i class="fa-brands fa-airbnb"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
-    <div class="floating-buttons">
-        <a href="https://wa.me/50760933457" class="floating-btn whatsapp">
-            <i class="fa-solid fa-comments"></i>
-        </a>
-    </div>
-    <div>
-        </style>
-        <div id="chatbot-container">
-            <div id="chatbot-messages"></div>
+<div id="chatbot-widget">
+        <div id="chatbot-container" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-icon">⚓</span>
+                    <span>Asistente Catamarán 360</span>
+                </div>
+                <button id="chatbot-close" class="close-btn">✕</button>
+            </div>
+            <div id="chatbot-messages">
+                <!-- Los mensajes se cargarán aquí dinámicamente -->
+            </div>
             <div id="chatbot-input">
                 <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
-                <button onclick="sendMessage()">➤</button>
+                <button id="send-btn" onclick="sendMessage()">
+                    <span class="send-icon">➤</span>
+                </button>
             </div>
         </div>
 
-        <button id="chatbot-toggle">💬</button>
-    </div>
+        <button id="chatbot-toggle">
+            <span class="toggle-icon">💬</span>
+            <span class="notification-badge hidden" id="notification-badge">1</span>
+        </button>
+    </div> 
     <script src="js/main.js"></script>
 </body>
 
