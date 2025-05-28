@@ -1447,10 +1447,6 @@
     direction: ltr;
   }
   
-  .experience-image {
-    height: 100%;
-  }
-  
   
   .experience-info {
     padding: 30px;
@@ -2299,18 +2295,19 @@
     direction: ltr;
   }
   
+
   .experience-image {
-    height: 100%;
+    height: 400px; /* Altura fija */
     position: relative;
     overflow: hidden;
-  }
-  
-  .experience-image img {
+    min-height: 400px;
+}
+.experience-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.5s ease;
-  }
+}
   
   .experience-card:hover .experience-image img {
     transform: scale(1.05);
@@ -3034,6 +3031,13 @@
 }
 
 /* Responsive */
+
+@media (max-width: 768px) {
+    .experience-image {
+        height: 300px;
+        min-height: 300px;
+    }
+}
 @media (max-width: 480px) {
     #chatbot-container {
         width: calc(100vw - 40px);
@@ -3163,7 +3167,7 @@
   
   @media (max-width: 480px) {
     .header-container {
-      height: 70px;
+      height: 80px;
     }
   
     .logo img {

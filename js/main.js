@@ -740,7 +740,7 @@ function appendMessageToDOM(sender, text, saveToHistory = true) {
   
   const avatar = document.createElement('div');
   avatar.className = 'message-avatar';
-  avatar.textContent = sender === 'Tú' ? '👤' : '🤖';
+  avatar.textContent = sender === 'Tú' ? '👤' : '🐶';
   
   const content = document.createElement('div');
   content.className = 'message-content';
