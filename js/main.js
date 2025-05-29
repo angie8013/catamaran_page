@@ -83,29 +83,35 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Language Selector
-  const langOptions = document.querySelectorAll(".lang-option")
+// Language Selector
+const langOptions = document.querySelectorAll(".lang-option")
 
-  if (langOptions.length > 0) {
-    langOptions.forEach((option) => {
-      option.addEventListener("click", function (e) {
-        e.preventDefault()
+if (langOptions.length > 0) {
+  langOptions.forEach((option) => {
+    option.addEventListener("click", function (e) {
+      e.preventDefault()
 
-        const langCode = this.getAttribute("data-lang")
-        const langText = this.querySelector("span").textContent
+      const langCode = this.getAttribute("data-lang")
+      const langText = this.querySelector("span").textContent
+      const langHref = this.getAttribute("href") // ✅ Obtener la URL destino
 
-        const currentLang = document.querySelector(".current-lang span")
-        if (currentLang) {
-          currentLang.textContent = langText
-        }
+      const currentLang = document.querySelector(".current-lang span")
+      if (currentLang) {
+        currentLang.textContent = langText
+      }
 
-        langOptions.forEach((opt) => opt.classList.remove("active"))
-        this.classList.add("active")
+      langOptions.forEach((opt) => opt.classList.remove("active"))
+      this.classList.add("active")
 
-        console.log(`Language changed to: ${langCode}`)
-      })
+      console.log(`Language changed to: ${langCode}`)
+
+      // ✅ Redirigir a la página del idioma correspondiente
+      if (langHref) {
+        window.location.href = langHref
+      }
     })
-  }
+  })
+}
 
   // Boat Image Slider
   const boatSliders = document.querySelectorAll(".boat-slider")
