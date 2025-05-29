@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reserva - Catamarán 360</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../img/logocatamaran.jpg" > 
+
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../../img/logocatamaran.jpg" alt="Catamarán 360 Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./embarcaciones.html">Embarcaciones</a></li>
+                    <li><a href="./tours_san_blas.html">Tours en San Blas</a></li>
+                    <li><a href="./galeria.html">Galería</a></li>
+                    <li><a href="./reserva.html" class="active">Reserva</a></li>
+                    <li><a href="./nosotros.html">Sobre Nosotros</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="language-selector">
+                    <div class="current-lang">
+                        <span>Español</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                     <div class="lang-dropdown">
+                        <a href="#" class="lang-option active" data-lang="es">
+                            <img src="../../img/banderas/Bandera_de_España.svg.webp" alt="Español">
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="lang-option" data-lang="en">
+                            <img src="../../img/banderas/Flag_of_the_United_Kingdom_(1-2).svg" alt="English">
+                            <span>English</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner reserva-banner">
+        <div class="container">
+            <h1>Reserva tu Experiencia</h1>
+            <p>Prepárate para vivir momentos inolvidables en San Blas</p>
+        </div>
+    </section>
+
+    <section class="booking-section">
+        <div class="container">
+            <div class="booking-intro">
+                <h2 class="section-title">Proceso de Reserva</h2>
+                <p>Completa el formulario a continuación para iniciar tu reserva. Nuestro equipo se pondrá en contacto contigo para confirmar disponibilidad y coordinar los detalles de tu experiencia en San Blas.</p>
+            </div>
+            
+            <div class="booking-process">
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>1. Solicitud</h3>
+                            <p>Completa el formulario con tus datos y preferencias</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>2. Confirmación</h3>
+                            <p>Recibirás confirmación de disponibilidad en 24 horas</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-credit-card"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>3. Pago</h3>
+                            <p>Realiza un depósito del 50% para asegurar tu reserva</p>
+                        </div>
+                    </div>
+                    <div class="step">
+                        <div class="step-icon">
+                            <i class="fas fa-ship"></i>
+                        </div>
+                        <div class="step-content">
+                            <h3>4. ¡A navegar!</h3>
+                            <p>Prepárate para tu aventura en San Blas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="booking-form-container">
+                <form class="booking-form" id="reservationForm">
+                    <div class="form-section">
+                        <h3>Información Personal</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre completo*</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico*</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Teléfono / WhatsApp*</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pais">País de origen</label>
+                                <input type="text" id="pais" name="pais">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Detalles de la Reserva</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="experiencia">Tipo de experiencia*</label>
+                                <select id="experiencia" name="experiencia" required>
+                                    <option value="">Selecciona una opción</option>
+                                    <option value="pasadia">Pasadía en San Blas</option>
+                                    <option value="hospedaje-privado">Hospedaje a Bordo - Privado</option>
+                                    <option value="hospedaje-compartido">Hospedaje a Bordo - Compartido</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="embarcacion">Embarcación preferida</label>
+                                <select id="embarcacion" name="embarcacion">
+                                    <option value="">Sin preferencia</option>
+                                    <option value="catamaran">Catamarán 360</option>
+                                    <option value="velero">La Perla (Velero)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="fecha">Fecha de llegada*</label>
+                                <input type="date" id="fecha" name="fecha" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="fecha">Fecha de salida</label>
+                                <input type="date" id="fecha-salida" name="fecha-salida" min="1" value="1">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="personas">Número de personas*</label>
+                                <input type="number" id="personas" name="personas" min="1" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Información Adicional</h3>
+                        <div class="form-group">
+                            <label for="mensaje">Comentarios o solicitudes especiales</label>
+                            <textarea id="mensaje" name="mensaje" rows="4"></textarea>
+                        </div>
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="terminos" name="terminos" required>
+                            <label for="terminos">Acepto los términos y condiciones*</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="cta-btn primary">Enviar Solicitud de Reserva</button>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="booking-info">
+                <div class="info-card">
+                    <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
+                    <ul>
+                        <li>Se requiere un depósito del 50% para confirmar la reserva.</li>
+                        <li>El saldo restante se paga en efectivo el día de la experiencia.</li>
+                        <li>Política de cancelación: 100% de reembolso con 7 días de anticipación.</li>
+                        <li>Las experiencias están sujetas a condiciones climáticas favorables.</li>
+                        <li>Los precios no incluyen transporte terrestre desde/hacia Ciudad de Panamá.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../img/logocatamaran.jpg" alt="Catamarán 360 Logo">
+                    <p>Tu Aventura en las Islas San Blas - Panamá</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="../index.html">Inicio</a></li>
+                        <li><a href="embarcaciones.html">Embarcaciones</a></li>
+                        <li><a href="tours_san_blas.html">Tours San Blas</a></li>
+                        <li><a href="galeria.html">Galería</a></li>
+                        <li><a href="reserva.html">Reserva</a></li>
+                        <li><a href="nosotros.html">Sobre Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contáctanos</h3>
+                    <p><i class="fab fa-instagram"></i> Instagram: @catamaran360</p>
+                    <p><i class="far fa-envelope"></i> Correo: catamaran360@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Punto de encuentro: Ciudad de Panamá / Puerto Cartí</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Catamarán 360. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-airbnb"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+<div id="chatbot-widget">
+        <div id="chatbot-container" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-icon">⚓</span>
+                    <span>Asistente Catamarán 360</span>
+                </div>
+                <button id="chatbot-close" class="close-btn">✕</button>
+            </div>
+            <div id="chatbot-messages">
+                <!-- Los mensajes se cargarán aquí dinámicamente -->
+            </div>
+            <div id="chatbot-input">
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
+                <button id="send-btn" onclick="sendMessage()">
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+        </div>
+
+        <button id="chatbot-toggle">
+            <span class="toggle-icon">💬</span>
+            <span class="notification-badge hidden" id="notification-badge">1</span>
+        </button>
+    </div>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

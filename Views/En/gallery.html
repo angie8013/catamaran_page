@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Catamaran 360</title>
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../../img/logocatamaran.jpg" > 
+
+</head>
+<body>
+    <header class="header">
+        <div class="container header-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../../img/logocatamaran.jpg" alt="Catamaran 360 Logo">
+                </a>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="./embarcaciones.html">Vessels</a></li>
+                    <li><a href="./tours_san_blas.html">San Blas Tours</a></li>
+                    <li><a href="./galeria.html" class="active">Gallery</a></li>
+                    <li><a href="./reserva.html">Book Now</a></li>
+                    <li><a href="./nosotros.html">About Us</a></li>
+                    <li><a href="./contacto.html">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="contact-info">
+                <div class="language-selector">
+                    <div class="current-lang">
+                        <span>English</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                     <div class="lang-dropdown">
+                        <a href="#" class="lang-option" data-lang="es">
+                            <img src="../../img/banderas/Bandera_de_España.svg.webp" alt="Español">
+                            <span>Español</span>
+                        </a>
+                        <a href="#" class="lang-option active" data-lang="en">
+                            <img src="../../img/banderas/Flag_of_the_United_Kingdom_(1-2).svg" alt="English">
+                            <span>English</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-banner galeria-banner">
+        <div class="container">
+            <h1>Gallery</h1>
+            <p>Explore our best images of San Blas</p>
+        </div>
+    </section>
+
+    <section class="gallery-full">
+        <div class="container">
+            <h2 class="section-title">Unforgettable Moments</h2>
+            
+            <ul class="gallery-filter">
+                <li class="active" data-filter="all">All</li>
+                <li data-filter="catamaranes">Catamarans</li>
+                <li data-filter="islas">Islands</li>
+                <li data-filter="experiencias">Experiences</li>
+                <li data-filter="vida-a-bordo">Life Aboard</li>
+            </ul>
+            
+            <div class="gallery-grid-full">
+                <div class="gallery-item" data-category="catamaranes">
+                    <img src="../../img/embarcaciones/catamaran/catamaran_atardecer.jpg" alt="Catamaran sailing">
+                    <div class="gallery-overlay">
+                        <h3>Navigation</h3>
+                        <p>Catamaran 360 in crystal clear waters</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="../../img/galeria_islas.JPG" alt="Paradise island">
+                    <div class="gallery-overlay">
+                        <h3>Desert Island</h3>
+                        <p>One of the more than 365 islands of San Blas</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="experiencias">
+                    <img src="../../img/galeria_snorkeling_2.jpg" alt="snorkeling in San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Snorkeling</h3>
+                        <p>Exploring marine life</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vida-a-bordo">
+                    <img src="../../img/galeria_desayuno.jpg" alt="Breakfast aboard">
+                    <div class="gallery-overlay">
+                        <h3>Breakfast Aboard</h3>
+                        <p>Fresh food with incredible views</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="../../img/atardecer.jpg" alt="Sunset in San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Sunset</h3>
+                        <p>Magical moments in the Caribbean</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="experiencias">
+                    <img src="../../img/galeria_kayak.jpg" alt="Kayak in San Blas">
+                    <div class="gallery-overlay">
+                        <h3>Kayak</h3>
+                        <p>Water adventures for everyone</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="catamaranes">
+                    <img src="../../img/galeria_barcos_3.jpg" alt="La Perla sailboat">
+                    <div class="gallery-overlay">
+                        <h3>La Perla</h3>
+                        <p>Our classic sailboat</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="vida-a-bordo">
+                    <img src="../../img/catamaran_360_3.jpg" alt="Relaxation on deck">
+                    <div class="gallery-overlay">
+                        <h3>Relaxation</h3>
+                        <p>Peaceful moments at sea</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-category="islas">
+                    <img src="../../img/galeria_islas_2.JPG" alt="White sand beach">
+                    <div class="gallery-overlay">
+                        <h3>Virgin Beaches</h3>
+                        <p>White sand and turquoise waters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container">
+            <h2>Would you like to live these experiences?</h2>
+            <p>Book now and create your own memories in San Blas</p>
+            <a href="reserva.html" class="cta-btn primary">Book your experience</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="../../img/logocatamaran.jpg" alt="Catamaran 360 Logo">
+                    <p>Your Adventure in the San Blas Islands - Panama</p>
+                </div>
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="embarcaciones.html">Vessels</a></li>
+                        <li><a href="tours_san_blas.html">San Blas Tours</a></li>
+                        <li><a href="galeria.html">Gallery</a></li>
+                        <li><a href="reserva.html">Book Now</a></li>
+                        <li><a href="nosotros.html">About Us</a></li>
+                        <li><a href="contacto.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Contact Us</h3>
+                    <p><i class="fab fa-instagram"></i> Instagram: @catamaran360</p>
+                    <p><i class="far fa-envelope"></i> Email: catamaran360@gmail.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Meeting point: Panama City / Puerto Cartí</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Catamaran 360. All rights reserved.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fa-brands fa-airbnb"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="lightbox" id="gallery-lightbox">
+        <div class="lightbox-content">
+            <span class="lightbox-close">&times;</span>
+            <img class="lightbox-image" src="/placeholder.svg" alt="Enlarged image">
+            <div class="lightbox-caption"></div>
+            <button class="lightbox-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="lightbox-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+<div id="chatbot-widget">
+        <div id="chatbot-container" class="chatbot-hidden">
+            <div id="chatbot-header">
+                <div class="chatbot-title">
+                    <span class="chatbot-icon">⚓</span>
+                    <span>Catamaran 360 Assistant</span>
+                </div>
+                <button id="chatbot-close" class="close-btn">✕</button>
+            </div>
+            <div id="chatbot-messages">
+                <!-- Messages will be loaded here dynamically -->
+            </div>
+            <div id="chatbot-input">
+                <input type="text" id="user-input" placeholder="Type your question..." />
+                <button id="send-btn" onclick="sendMessage()">
+                    <span class="send-icon">➤</span>
+                </button>
+            </div>
+        </div>
+
+        <button id="chatbot-toggle">
+            <span class="toggle-icon">💬</span>
+            <span class="notification-badge hidden" id="notification-badge">1</span>
+        </button>
+    </div>
+    <script src="../../js/main.js"></script>
+ 
+</body>
+</html>

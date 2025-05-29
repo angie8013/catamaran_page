@@ -3175,7 +3175,9 @@
     }
   
     .contact-info {
-      display: none;
+          display: flex
+;
+    align-items: center;
     }
   
     .slide-content h2 {
