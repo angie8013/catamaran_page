@@ -3152,6 +3152,11 @@ img {
   .contact-content {
     grid-template-columns: 1fr;
   }
+
+  .details-grid {
+    display: block;
+    margin-bottom: 25px;
+}
 }
 
 @media (max-width: 768px) {
@@ -3174,7 +3179,10 @@ img {
   .slide-content h1 {
     font-size: 3rem;
   }
-
+.details-grid {
+    display: block;
+    margin-bottom: 25px;
+}
   .cta-buttons {
     flex-direction: column;
     gap: 15px;
@@ -3228,7 +3236,10 @@ img {
   .section-title {
     font-size: 2rem;
   }
-
+.details-grid {
+    display: block;
+    margin-bottom: 25px;
+}
   .process-steps {
     flex-direction: column;
   }
