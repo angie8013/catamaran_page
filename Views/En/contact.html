@@ -267,20 +267,23 @@
         </div>
     </footer>
 
-    <div id="chatbot-widget">
+<div id="chatbot-widget">
         <div id="chatbot-container" class="chatbot-hidden">
             <div id="chatbot-header">
                 <div class="chatbot-title">
                     <span class="chatbot-icon">⚓</span>
                     <span>Catamaran 360 Assistant</span>
                 </div>
-                <button id="chatbot-close" class="close-btn">✕</button>
+                <div class="chatbot-controls">
+                    <button id="chatbot-clear" class="clear-btn" title="Limpiar chat">🗑️</button>
+                    <button id="chatbot-close" class="close-btn">✕</button>
+                </div>
             </div>
             <div id="chatbot-messages">
-                <!-- Messages will be loaded here dynamically -->
+                <!-- Los mensajes se cargarán aquí dinámicamente -->
             </div>
             <div id="chatbot-input">
-                <input type="text" id="user-input" placeholder="Type your question..." />
+                <input type="text" id="user-input" placeholder="Escribe tu pregunta..." />
                 <button id="send-btn" onclick="sendMessage()">
                     <span class="send-icon">➤</span>
                 </button>

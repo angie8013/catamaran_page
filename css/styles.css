@@ -316,6 +316,7 @@ img {
   white-space: nowrap;
   color: white;
   font-weight: 600;
+  text-shadow: 3px 3px 5px #333;
 }
 
 .slide-subtitle {
@@ -324,6 +325,7 @@ img {
   margin-bottom: 0.5rem;
   font-weight: bold;
   color: white;
+  text-shadow: 2px 2px 4px #333;
 }
 
 /* Si quieres eliminar los estilos anteriores */
@@ -594,6 +596,10 @@ img {
   flex: 1.5;
   min-width: 300px;
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 /* Nuevo diseño elegante para la insignia de experiencia */
@@ -2277,7 +2283,7 @@ img {
 /* Tarjetas de experiencia rediseñadas */
 .experience-card {
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1fr;
   gap: 30px;
   margin-bottom: 50px;
   background-color: var(--light-text);
@@ -2303,8 +2309,6 @@ img {
 
 
 .experience-image {
-  height: 400px;
-  /* Altura fija */
   position: relative;
   overflow: hidden;
   min-height: 400px;
@@ -2312,7 +2316,7 @@ img {
 
 .experience-image img {
   width: 100%;
-  height: 100%;
+  height: 105vh;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
@@ -2542,7 +2546,7 @@ img {
 
 .experience-info .cta-btn {
   margin-top: auto;
-  align-self: flex-start;
+  align-self: anchor-center;
 }
 
 /* Testimonial Banner */
@@ -2745,6 +2749,40 @@ img {
   font-size: 1.5rem;
   margin-right: 10px;
   animation: float 3s ease-in-out infinite;
+}
+
+.chatbot-controls {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 3px;
+    transition: background-color 0.2s;
+}
+
+.clear-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.temp-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10000;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
 }
 
 @keyframes float {
@@ -3156,7 +3194,7 @@ img {
   .details-grid {
     display: block;
     margin-bottom: 25px;
-}
+  }
 }
 
 @media (max-width: 768px) {
@@ -3179,10 +3217,12 @@ img {
   .slide-content h1 {
     font-size: 3rem;
   }
-.details-grid {
+
+  .details-grid {
     display: block;
     margin-bottom: 25px;
-}
+  }
+
   .cta-buttons {
     flex-direction: column;
     gap: 15px;
@@ -3236,10 +3276,12 @@ img {
   .section-title {
     font-size: 2rem;
   }
-.details-grid {
+
+  .details-grid {
     display: block;
     margin-bottom: 25px;
-}
+  }
+
   .process-steps {
     flex-direction: column;
   }
@@ -3399,21 +3441,23 @@ img {
 /* Móviles grandes (como el de tu imagen) */
 @media screen and (max-width: 480px) {
   .slide-title {
-    font-size: clamp(1.6rem, 6vw, 2.5rem);
+    font-size: clamp(3.5rem, 6vw, 2.5rem);
     margin-bottom: clamp(0.8rem, 3vw, 1.5rem);
     /* Permitir wrap solo si es necesario */
     white-space: normal;
     text-align: center;
+    text-shadow: 3px 3px 5px #333;
   }
 
   .slide-subtitle {
-    font-size: clamp(0.8rem, 3vw, 1.2rem);
+    font-size: clamp(1.5rem, 3vw, 1.2rem);
     margin-bottom: 0.4rem;
     text-align: center;
     /* Mejor espaciado para textos largos */
     line-height: 1.2;
     /* Padding lateral para evitar que toque los bordes */
     padding: 0 10px;
+    text-shadow: 2px 2px 4px #333;
   }
 
   /* Contenedor del slide para mejor centrado */
@@ -3426,14 +3470,16 @@ img {
 /* Móviles pequeños */
 @media screen and (max-width: 360px) {
   .slide-title {
-    font-size: clamp(1.4rem, 5.5vw, 2rem);
+    font-size: clamp(2.8rem, 5.5vw, 2rem);
     margin-bottom: clamp(0.6rem, 2.5vw, 1rem);
+    text-shadow: 3px 3px 5px #333;
   }
 
   .slide-subtitle {
-    font-size: clamp(0.7rem, 2.8vw, 1rem);
+    font-size: clamp(1.3rem, 2.8vw, 1rem);
     margin-bottom: 0.3rem;
     padding: 0 8px;
+    text-shadow: 2px 2px 4px #333;
   }
 }
 
@@ -3442,10 +3488,12 @@ img {
   .slide-title {
     font-size: clamp(2rem, 6.5vw, 2.8rem);
     margin-bottom: clamp(1rem, 3.5vw, 1.8rem);
+    text-shadow: 3px 3px 5px #333;
   }
 
   .slide-subtitle {
     font-size: clamp(0.9rem, 3.2vw, 1.3rem);
+    text-shadow: 2px 2px 4px #333;
   }
 }
 
@@ -3454,11 +3502,13 @@ img {
   .slide-title {
     font-size: clamp(1.2rem, 4vw, 1.8rem);
     margin-bottom: 0.5rem;
+    text-shadow: 3px 3px 5px #333;
   }
 
   .slide-subtitle {
     font-size: clamp(0.6rem, 2vw, 0.9rem);
     margin-bottom: 0.3rem;
+    text-shadow: 2px 2px 4px #333;
   }
 }
 

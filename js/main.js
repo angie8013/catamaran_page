@@ -533,6 +533,7 @@ const messages = document.getElementById("chatbot-messages");
 const input = document.getElementById("user-input");
 const closeBtn = document.getElementById("chatbot-close");
 const sendBtn = document.getElementById("send-btn");
+const clearBtn = document.getElementById("chatbot-clear"); // NUEVO: Botón de limpiar
 const badge = document.getElementById("notification-badge");
 
 // Variable para controlar el estado del chatbot
@@ -562,6 +563,13 @@ function initializeChatbot() {
   if (closeBtn) {
     closeBtn.addEventListener("click", () => {
       closeChat();
+    });
+  }
+
+  // NUEVO: Clear button
+  if (clearBtn) {
+    clearBtn.addEventListener("click", () => {
+      clearChatAndGenerateNewSession();
     });
   }
 
@@ -655,21 +663,97 @@ function updateNotificationBadge() {
   }
 }
 
+//======================= NUEVA: Función para limpiar chat y generar nueva sesión ==============================
+function clearChatAndGenerateNewSession() {
+  try {
+    // Generar nuevo session_id
+    session_id = "session-" + Math.random().toString(36).substr(2, 9);
+    localStorage.setItem("chatbot_session_id", session_id);
+    
+    // Limpiar historial del localStorage
+    localStorage.removeItem("chatbot_history");
+    
+    // Limpiar mensajes del DOM
+    if (messages) {
+      messages.innerHTML = '';
+    }
+    
+    // Resetear contador de mensajes
+    messageCount = 0;
+    
+    // Cargar mensaje de bienvenida nuevamente
+    loadChatHistory();
+    
+    console.log("Chat limpiado. Nuevo Session ID:", session_id);
+    
+    // Opcional: Mostrar mensaje de confirmación temporal
+    showTemporaryMessage("chat cleaned successfully / Chat limpiado correctamente");
+    
+  } catch (error) {
+    console.error("Error limpiando chat:", error);
+    showTemporaryMessage("Error clearing chat / Error al limpiar el chat");
+  }
+}
+
+//======================= NUEVA: Función para mostrar mensaje temporal ==============================
+function showTemporaryMessage(text) {
+  // Crear elemento de mensaje temporal
+  const tempMessage = document.createElement('div');
+  tempMessage.className = 'temp-message';
+  tempMessage.textContent = text;
+  tempMessage.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    z-index: 10000;
+    font-size: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease;
+  `;
+  
+  document.body.appendChild(tempMessage);
+  
+  // Remover después de 3 segundos
+  setTimeout(() => {
+    tempMessage.style.opacity = '0';
+    setTimeout(() => {
+      if (tempMessage.parentNode) {
+        tempMessage.parentNode.removeChild(tempMessage);
+      }
+    }, 300);
+  }, 3000);
+}
+
 //======================= Cargar historial de mensajes ================================
 function loadChatHistory() {
   const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
-  
-  // Si no hay historial, mostrar mensaje de bienvenida
+
+  // Establece el idioma actual (puedes cambiarlo dinámicamente según el sitio)
+  const currentLanguage = document.documentElement.lang || "es"; // usa <html lang="es"> o <html lang="en">
+
+  // Mensajes de bienvenida por idioma
+  const welcomeMessages = {
+    es: "¡Hola! 🐶 Soy Sancho, el perrito tripulante de Catamarán 360. Me encanta acompañar a nuestros viajeros por las islas de San Blas. ¿En qué te puedo ayudar hoy? 🚤",
+    en: "Hi there! 🐶 I'm Sancho, the crew pup from Catamarán 360. I love joining our guests as we sail around the San Blas Islands. How can I help you today? 🚤"
+  };
+
+  // Si no hay historial, mostrar el mensaje de bienvenida según el idioma
   if (chatHistory.length === 0) {
-    appendMessageToDOM("Bot", "¡Hola! Soy tu asistente virtual de Catamarán 360. ¿En qué puedo ayudarte hoy? 🚤", false);
+    const message = welcomeMessages[currentLanguage] || welcomeMessages.es;
+    appendMessageToDOM("Bot", message, false);
   } else {
     chatHistory.forEach(({ sender, text }) => {
       appendMessageToDOM(sender, text, false);
     });
   }
-  
+
   scrollToBottom();
 }
+
 
 //======================= Función para enviar al webhook de n8n ========================
 async function sendMessage() {
@@ -895,6 +979,7 @@ window.addEventListener('error', (e) => {
 window.chatbotDebug = {
   clearHistory: clearChatHistory,
   resetSession: resetChatSession,
+  clearAndNewSession: clearChatAndGenerateNewSession, // NUEVA función agregada
   getSessionId: () => session_id,
   getMessageCount: () => messageCount,
   isOpen: () => isOpen,
