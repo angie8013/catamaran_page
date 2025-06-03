@@ -315,7 +315,7 @@ img {
   margin-bottom: 2rem;
   white-space: nowrap;
   color: white;
-  font-weight: 600;
+  font-weight: 800;
   text-shadow: 3px 3px 5px #333;
 }
 
@@ -3481,7 +3481,7 @@ img {
 /* Móviles pequeños */
 @media screen and (max-width: 360px) {
   .slide-title {
-    font-size: clamp(2.8rem, 5.5vw, 2rem);
+    font-size: clamp(3rem, 5.5vw, 2rem);
     margin-bottom: clamp(0.6rem, 2.5vw, 1rem);
     text-shadow: 3px 3px 5px #333;
   }
