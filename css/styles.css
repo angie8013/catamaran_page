@@ -3497,13 +3497,13 @@ img {
 /* Ajuste para pantallas muy altas (como la de tu imagen) */
 @media screen and (min-height: 700px) and (max-width: 480px) {
   .slide-title {
-    font-size: clamp(2rem, 6.5vw, 2.8rem);
+    font-size: clamp(3.5rem, 6.5vw, 2.8rem);
     margin-bottom: clamp(1rem, 3.5vw, 1.8rem);
     text-shadow: 3px 3px 5px #333;
   }
 
   .slide-subtitle {
-    font-size: clamp(0.9rem, 3.2vw, 1.3rem);
+    font-size: clamp(1.8rem, 3.2vw, 1.3rem);
     text-shadow: 2px 2px 4px #333;
   }
 }
@@ -3582,13 +3582,13 @@ img {
 /* Móviles pequeños */
 @media screen and (max-width: 360px) {
   .page-banner h1 {
-    font-size: clamp(1.1rem, 4vw, 1.7rem);
+    font-size: clamp(2rem, 4vw, 1.7rem);
     margin-bottom: clamp(0.3rem, 1vw, 0.5rem);
     padding: 0 8px;
   }
 
   .page-banner p {
-    font-size: clamp(0.65rem, 2vw, 0.9rem);
+    font-size: clamp(1rem, 2vw, 0.9rem);
     padding: 0 8px;
   }
 
