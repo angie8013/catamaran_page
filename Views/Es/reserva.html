@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,9 +11,10 @@
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="shortcut icon" href="../../img/logocatamaran.jpg" > 
+    <link rel="shortcut icon" href="../../img/logocatamaran.jpg">
 
 </head>
+
 <body>
     <header class="header">
         <div class="container header-container">
@@ -38,7 +40,7 @@
                         <span>Español</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                     <div class="lang-dropdown">
+                    <div class="lang-dropdown">
                         <a href="#" class="lang-option active" data-lang="es">
                             <img src="../../img/banderas/Bandera_de_España.svg.webp" alt="Español">
                             <span>Español</span>
@@ -67,9 +69,10 @@
         <div class="container">
             <div class="booking-intro">
                 <h2 class="section-title">Proceso de Reserva</h2>
-                <p>Completa el formulario a continuación para iniciar tu reserva. Nuestro equipo se pondrá en contacto contigo para confirmar disponibilidad y coordinar los detalles de tu experiencia en San Blas.</p>
+                <p>Completa el formulario a continuación para iniciar tu reserva. Nuestro equipo se pondrá en contacto
+                    contigo para confirmar disponibilidad y coordinar los detalles de tu experiencia en San Blas.</p>
             </div>
-            
+
             <div class="booking-process">
                 <div class="process-steps">
                     <div class="step">
@@ -110,7 +113,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="booking-form-container">
                 <form class="booking-form" id="reservationForm">
                     <div class="form-section">
@@ -136,7 +139,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-section">
                         <h3>Detalles de la Reserva</h3>
                         <div class="form-row">
@@ -175,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="form-section">
                         <h3>Información Adicional</h3>
                         <div class="form-group">
@@ -187,13 +190,15 @@
                             <label for="terminos">Acepto los términos y condiciones*</label>
                         </div>
                     </div>
-                    
+
                     <div class="form-actions">
                         <button type="submit" class="cta-btn primary">Enviar Solicitud de Reserva</button>
                     </div>
+                    <div id="form-response" style="margin-top: 1em; font-weight: bold;"></div>
+
                 </form>
             </div>
-            
+
             <div class="booking-info">
                 <div class="info-card">
                     <h3><i class="fas fa-info-circle"></i> Información Importante</h3>
@@ -245,7 +250,7 @@
         </div>
     </footer>
 
-<div id="chatbot-widget">
+    <div id="chatbot-widget">
         <div id="chatbot-container" class="chatbot-hidden">
             <div id="chatbot-header">
                 <div class="chatbot-title">
@@ -274,5 +279,8 @@
         </button>
     </div>
     <script src="/js/main.js"></script>
+        <script src="/js/reserva.js"></script>
+
 </body>
+
 </html>
