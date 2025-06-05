@@ -82,17 +82,17 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nombre">Nombre completo*</label>
-                                <input type="text" id="nombre" name="nombre" required>
+<input type="text" id="Full_Name" name="nombre" required>
                             </div>
                             <div class="form-group">
                                 <label for="email">Correo electrónico*</label>
-                                <input type="email" id="email" name="email" required>
+ <input type="email" id="Email" name="email" required>
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="telefono">Teléfono / WhatsApp</label>
-                                <input type="tel" id="telefono" name="telefono">
+<input type="tel" id="Phone" name="telefono">
                                 <script>
             const input = document.querySelector("#telefono");
             window.intlTelInput(input, {
@@ -110,7 +110,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="asunto">Asunto*</label>
-                                <select id="asunto" name="asunto" required>
+<select id="Subjet" name="asunto" required>
                                     <option value="">Selecciona una opción</option>
                                     <option value="informacion">Información general</option>
                                     <option value="reserva">Consulta sobre reservas</option>
@@ -121,11 +121,13 @@
                         </div>
                         <div class="form-group">
                             <label for="mensaje">Mensaje*</label>
-                            <textarea id="mensaje" name="mensaje" rows="6" required></textarea>
+<textarea id="Message" name="mensaje" rows="6" required></textarea>
                         </div>
                         <div class="form-actions">
                             <button type="submit" class="cta-btn primary">Enviar Mensaje</button>
                         </div>
+                        <div id="form-response" style="margin-top: 1em; font-weight: bold;"></div>
+                        
                     </form>
                 </div>
 
