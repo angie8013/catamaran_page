@@ -76,7 +76,7 @@
 
             <div class="contact-content">
                 <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm">
+<form class="contact-form" id="contactForm" method="POST">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nombre">Nombre completo*</label>
@@ -296,6 +296,29 @@
         </button>
     </div>
     <script src="/js/main.js"></script>
+
+    <script>
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault(); // Evita el envío normal
+
+    const formData = new FormData(this);
+
+    fetch("enviar_contacto.php", {
+        method: "POST",
+        body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+        alert("¡Mensaje enviado exitosamente!");
+        document.getElementById("contactForm").reset();
+    })
+    .catch(error => {
+        alert("Error al enviar el mensaje. Inténtalo de nuevo.");
+        console.error(error);
+    });
+});
+</script>
+
 </body>
 
 </html>
