@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="../../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.css"/>
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
     <link rel="shortcut icon" href="../../img/logocatamaran.jpg">
 
 </head>
@@ -76,7 +78,7 @@
 
             <div class="contact-content">
                 <div class="contact-form-container">
-                    <form class="contact-form" id="contactForm" method="POST" action="enviar_contacto.php">
+                    <form class="contact-form" id="contactForm"">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nombre">Nombre completo*</label>
@@ -91,6 +93,20 @@
                             <div class="form-group">
                                 <label for="telefono">Teléfono / WhatsApp</label>
                                 <input type="tel" id="telefono" name="telefono">
+                                <script>
+            const input = document.querySelector("#telefono");
+            window.intlTelInput(input, {
+                initialCountry: "auto",
+                geoIpLookup: callback => {
+                    fetch('https://ipapi.co/json/')
+                        .then(res => res.json())
+                        .then(data => callback(data.country_code))
+                        .catch(() => callback("us"));
+                },
+                utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js" // para validación y formato
+            });
+        </script>
+
                             </div>
                             <div class="form-group">
                                 <label for="asunto">Asunto*</label>
@@ -296,28 +312,6 @@
         </button>
     </div>
     <script src="/js/main.js"></script>
-
-    <script>
-        document.getElementById("contactForm").addEventListener("submit", function (e) {
-            e.preventDefault(); // Evita el envío normal
-
-            const formData = new FormData(this);
-
-            fetch("enviar_contacto.php", {
-                method: "POST",
-                body: formData
-            })
-                .then(response => response.text())
-                .then(data => {
-                    alert("¡Mensaje enviado exitosamente!");
-                    document.getElementById("contactForm").reset();
-                })
-                .catch(error => {
-                    alert("Error al enviar el mensaje. Inténtalo de nuevo.");
-                    console.error(error);
-                });
-        });
-    </script>
 
 </body>
 
