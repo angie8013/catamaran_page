@@ -40,7 +40,7 @@
                         <span>Español</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                     <div class="lang-dropdown">
+                    <div class="lang-dropdown">
                         <a href="#" class="lang-option active" data-lang="es">
                             <img src="../../img/banderas/Bandera_de_España.svg.webp" alt="Español">
                             <span>Español</span>
@@ -76,7 +76,7 @@
 
             <div class="contact-content">
                 <div class="contact-form-container">
-<form class="contact-form" id="contactForm" method="POST">
+                    <form class="contact-form" id="contactForm" method="POST" action="enviar_contacto.php">
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="nombre">Nombre completo*</label>
@@ -267,7 +267,7 @@
         </div>
     </footer>
 
-<div id="chatbot-widget">
+    <div id="chatbot-widget">
         <div id="chatbot-container" class="chatbot-hidden">
             <div id="chatbot-header">
                 <div class="chatbot-title">
@@ -298,26 +298,26 @@
     <script src="/js/main.js"></script>
 
     <script>
-document.getElementById("contactForm").addEventListener("submit", function(e) {
-    e.preventDefault(); // Evita el envío normal
+        document.getElementById("contactForm").addEventListener("submit", function (e) {
+            e.preventDefault(); // Evita el envío normal
 
-    const formData = new FormData(this);
+            const formData = new FormData(this);
 
-    fetch("enviar_contacto.php", {
-        method: "POST",
-        body: formData
-    })
-    .then(response => response.text())
-    .then(data => {
-        alert("¡Mensaje enviado exitosamente!");
-        document.getElementById("contactForm").reset();
-    })
-    .catch(error => {
-        alert("Error al enviar el mensaje. Inténtalo de nuevo.");
-        console.error(error);
-    });
-});
-</script>
+            fetch("enviar_contacto.php", {
+                method: "POST",
+                body: formData
+            })
+                .then(response => response.text())
+                .then(data => {
+                    alert("¡Mensaje enviado exitosamente!");
+                    document.getElementById("contactForm").reset();
+                })
+                .catch(error => {
+                    alert("Error al enviar el mensaje. Inténtalo de nuevo.");
+                    console.error(error);
+                });
+        });
+    </script>
 
 </body>
 

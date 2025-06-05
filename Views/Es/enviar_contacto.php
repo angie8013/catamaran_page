@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $mail->Port = 465;
 
         $mail->setFrom('system@catamaran-360.com', 'Web Catamarán 360');
-        $mail->addAddress('reservas@catamaran-360.com');
+        $mail->addAddress('gutierrezangietatiana@gmail.com');
 
         $mail->Subject = "Nuevo mensaje de contacto - $asunto";
         $mail->Body = "Nombre: $nombre\nCorreo: $email\nTeléfono: $telefono\n\nMensaje:\n$mensaje";
