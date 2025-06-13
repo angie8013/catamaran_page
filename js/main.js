@@ -83,35 +83,35 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-// Language Selector
-const langOptions = document.querySelectorAll(".lang-option")
+  // Language Selector
+  const langOptions = document.querySelectorAll(".lang-option")
 
-if (langOptions.length > 0) {
-  langOptions.forEach((option) => {
-    option.addEventListener("click", function (e) {
-      e.preventDefault()
+  if (langOptions.length > 0) {
+    langOptions.forEach((option) => {
+      option.addEventListener("click", function (e) {
+        e.preventDefault()
 
-      const langCode = this.getAttribute("data-lang")
-      const langText = this.querySelector("span").textContent
-      const langHref = this.getAttribute("href") // ✅ Obtener la URL destino
+        const langCode = this.getAttribute("data-lang")
+        const langText = this.querySelector("span").textContent
+        const langHref = this.getAttribute("href") // ✅ Obtener la URL destino
 
-      const currentLang = document.querySelector(".current-lang span")
-      if (currentLang) {
-        currentLang.textContent = langText
-      }
+        const currentLang = document.querySelector(".current-lang span")
+        if (currentLang) {
+          currentLang.textContent = langText
+        }
 
-      langOptions.forEach((opt) => opt.classList.remove("active"))
-      this.classList.add("active")
+        langOptions.forEach((opt) => opt.classList.remove("active"))
+        this.classList.add("active")
 
-      console.log(`Language changed to: ${langCode}`)
+        console.log(`Language changed to: ${langCode}`)
 
-      // ✅ Redirigir a la página del idioma correspondiente
-      if (langHref) {
-        window.location.href = langHref
-      }
+        // ✅ Redirigir a la página del idioma correspondiente
+        if (langHref) {
+          window.location.href = langHref
+        }
+      })
     })
-  })
-}
+  }
 
   // Boat Image Slider
   const boatSliders = document.querySelectorAll(".boat-slider")
@@ -330,6 +330,7 @@ if (langOptions.length > 0) {
         // Obtener el ID del contenido a mostrar/ocultar
         const targetId = this.getAttribute("data-target")
         const targetContent = document.getElementById(targetId)
+        const parentCard = this.closest(".experience-card")
 
         // Alternar la clase hidden
         targetContent.classList.toggle("hidden")
@@ -337,8 +338,10 @@ if (langOptions.length > 0) {
         // Cambiar el texto e icono del botón
         if (targetContent.classList.contains("hidden")) {
           this.innerHTML = 'Ver más detalles <i class="fas fa-chevron-down"></i>'
+          if (parentCard) parentCard.classList.remove("expanded")
         } else {
           this.innerHTML = 'Ver menos <i class="fas fa-chevron-up"></i>'
+          if (parentCard) parentCard.classList.add("expanded")
         }
 
         // Añadir clase active al botón
@@ -347,6 +350,7 @@ if (langOptions.length > 0) {
     })
   }
 })
+
 // Función para alinear los elementos de los barcos con precisión
 function alignBoatElements() {
   // Verificar si estamos en la página de embarcaciones
@@ -544,7 +548,7 @@ let messageCount = 0;
 document.addEventListener("DOMContentLoaded", () => {
   initializeChatbot();
   loadChatHistory();
-  
+
   // Mostrar badge de notificación después de 2 segundos
   setTimeout(() => {
     showNotificationBadge();
@@ -612,31 +616,31 @@ function toggleChat() {
 
 function openChat() {
   if (!chatbot) return;
-  
+
   chatbot.classList.remove('chatbot-hidden');
-  
+
   setTimeout(() => {
     chatbot.classList.add('chatbot-visible');
     if (input) input.focus();
   }, 10);
-  
+
   isOpen = true;
-  
+
   // Agregar clase al body para prevenir scroll
   document.body.classList.add('chatbot-open');
 }
 
 function closeChat() {
   if (!chatbot) return;
-  
+
   chatbot.classList.remove('chatbot-visible');
-  
+
   setTimeout(() => {
     chatbot.classList.add('chatbot-hidden');
   }, 300);
-  
+
   isOpen = false;
-  
+
   // Remover clase del body
   document.body.classList.remove('chatbot-open');
 }
@@ -669,26 +673,26 @@ function clearChatAndGenerateNewSession() {
     // Generar nuevo session_id
     session_id = "session-" + Math.random().toString(36).substr(2, 9);
     localStorage.setItem("chatbot_session_id", session_id);
-    
+
     // Limpiar historial del localStorage
     localStorage.removeItem("chatbot_history");
-    
+
     // Limpiar mensajes del DOM
     if (messages) {
       messages.innerHTML = '';
     }
-    
+
     // Resetear contador de mensajes
     messageCount = 0;
-    
+
     // Cargar mensaje de bienvenida nuevamente
     loadChatHistory();
-    
+
     console.log("Chat limpiado. Nuevo Session ID:", session_id);
-    
+
     // Opcional: Mostrar mensaje de confirmación temporal
     showTemporaryMessage("chat cleaned successfully / Chat limpiado correctamente");
-    
+
   } catch (error) {
     console.error("Error limpiando chat:", error);
     showTemporaryMessage("Error clearing chat / Error al limpiar el chat");
@@ -714,9 +718,9 @@ function showTemporaryMessage(text) {
     box-shadow: 0 2px 10px rgba(0,0,0,0.2);
     transition: opacity 0.3s ease;
   `;
-  
+
   document.body.appendChild(tempMessage);
-  
+
   // Remover después de 3 segundos
   setTimeout(() => {
     tempMessage.style.opacity = '0';
@@ -762,7 +766,7 @@ async function sendMessage() {
 
   // Deshabilitar input mientras se procesa
   setInputState(false);
-  
+
   appendMessage("Tú", question);
   input.value = "";
 
@@ -784,14 +788,14 @@ async function sendMessage() {
     }
 
     const data = await response.json();
-    
+
     // Simular delay para mejor UX
     setTimeout(() => {
       hideTypingIndicator();
       appendMessage("Bot", data.respuesta || "No se recibió respuesta.");
       setInputState(true);
     }, 800);
-    
+
   } catch (error) {
     console.error("Error en sendMessage:", error);
     hideTypingIndicator();
@@ -815,7 +819,7 @@ function setInputState(enabled) {
 //======================= Mostrar mensajes en la ventana ==============================
 function appendMessage(sender, text) {
   appendMessageToDOM(sender, text, true);
-  
+
   // Si el chatbot está cerrado y es un mensaje del bot, mostrar notificación
   if (!isOpen && sender === "Bot") {
     updateNotificationBadge();
@@ -824,34 +828,34 @@ function appendMessage(sender, text) {
 
 function appendMessageToDOM(sender, text, saveToHistory = true) {
   if (!messages) return;
-  
+
   const messageDiv = document.createElement('div');
   messageDiv.className = `message ${sender === 'Tú' ? 'user' : 'bot'}-message`;
-  
+
   const avatar = document.createElement('div');
   avatar.className = 'message-avatar';
   avatar.textContent = sender === 'Tú' ? '👤' : '🐶';
-  
+
   const content = document.createElement('div');
   content.className = 'message-content';
   content.textContent = text;
-  
+
   messageDiv.appendChild(avatar);
   messageDiv.appendChild(content);
-  
+
   // Animación de entrada
   messageDiv.style.opacity = '0';
   messageDiv.style.transform = 'translateY(10px)';
-  
+
   messages.appendChild(messageDiv);
-  
+
   // Trigger animation
   setTimeout(() => {
     messageDiv.style.opacity = '1';
     messageDiv.style.transform = 'translateY(0)';
     messageDiv.style.transition = 'all 0.3s ease-out';
   }, 10);
-  
+
   scrollToBottom();
   messageCount++;
 
@@ -865,12 +869,12 @@ function saveMessageToHistory(sender, text) {
   try {
     const chatHistory = JSON.parse(localStorage.getItem("chatbot_history")) || [];
     chatHistory.push({ sender, text, timestamp: Date.now() });
-    
+
     // Limitar historial a últimos 50 mensajes
     if (chatHistory.length > 50) {
       chatHistory.splice(0, chatHistory.length - 50);
     }
-    
+
     localStorage.setItem("chatbot_history", JSON.stringify(chatHistory));
   } catch (error) {
     console.error("Error guardando historial:", error);
@@ -881,27 +885,27 @@ function saveMessageToHistory(sender, text) {
 function showTypingIndicator() {
   // Remover indicador existente si existe
   hideTypingIndicator();
-  
+
   const typingDiv = document.createElement('div');
   typingDiv.className = 'message bot-message typing-indicator';
   typingDiv.id = 'typing-indicator';
-  
+
   const avatar = document.createElement('div');
   avatar.className = 'message-avatar';
   avatar.textContent = '🤖';
-  
+
   const dotsContainer = document.createElement('div');
   dotsContainer.className = 'typing-dots';
-  
+
   for (let i = 0; i < 3; i++) {
     const dot = document.createElement('div');
     dot.className = 'typing-dot';
     dotsContainer.appendChild(dot);
   }
-  
+
   typingDiv.appendChild(avatar);
   typingDiv.appendChild(dotsContainer);
-  
+
   if (messages) {
     messages.appendChild(typingDiv);
     scrollToBottom();
@@ -959,7 +963,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && isOpen) {
     closeChat();
   }
-  
+
   // Ctrl/Cmd + K para abrir chatbot
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault();
@@ -996,3 +1000,5 @@ if (document.readyState === 'loading') {
 } else {
   console.log('Chatbot Catamarán 360 inicializado correctamente');
 }
+
+//CARD DE SAN BLAS TOURS//
