@@ -5,13 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Catamaran 360</title>
-        <link rel="alternate" hreflang="en" href="https://page.catamaran-360.com/Views/En/contact.html" />
+    <link rel="alternate" hreflang="en" href="https://page.catamaran-360.com/Views/En/contact.html" />
     <link rel="alternate" hreflang="es" href="https://page.catamaran-360.com/Views/Es/contacto.html" />
     <link rel="alternate" hreflang="x-default" href="https://page.catamaran-360.com/Views/En/contact.html" />
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="/img/logocatamaran.jpg">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/css/intlTelInput.css" />
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/intlTelInput.min.js"></script>
 
 </head>
 
@@ -34,13 +36,13 @@
                     <li><a href="./contact.html" class="active">Contact</a></li>
                 </ul>
             </nav>
-            <div class="contact-info">
+            <div class="contact-info"><i class="fa-solid fa-globe"></i>
                 <div class="language-selector">
                     <div class="current-lang">
                         <span>English</span>
                         <i class="fas fa-chevron-down"></i>
                     </div>
-                     <div class="lang-dropdown">
+                    <div class="lang-dropdown">
                         <a href="/Views/Es/contacto.html" class="lang-option" data-lang="es">
                             <img src="../../img/banderas/Bandera_de_España.svg.webp" alt="Español">
                             <span>Español</span>
@@ -69,7 +71,8 @@
         <div class="container">
             <div class="contact-intro">
                 <h2 class="section-title">Get in Touch</h2>
-                <p>Do you have questions about our experiences, vessels, or availability? We're here to help you. Complete the form below or use any of our direct contact channels.</p>
+                <p>Do you have questions about our experiences, vessels, or availability? We're here to help you.
+                    Complete the form below or use any of our direct contact channels.</p>
             </div>
 
             <div class="contact-content">
@@ -85,11 +88,24 @@
                                 <input type="email" id="email" name="email" required>
                             </div>
                         </div>
-                        <div class="form-row">
+                                                <div class="form-row">
                             <div class="form-group">
-                                <label for="telefono">Phone / WhatsApp</label>
-                                <input type="tel" id="telefono" name="telefono">
+                                <label for="telefono">Phone</label>
+                                <input type="tel" id="telefono" name="telefono" required>
                             </div>
+                            <script>
+                                const input = document.querySelector("#telefono");
+                                window.intlTelInput(input, {
+                                    initialCountry: "auto",
+                                    geoIpLookup: callback => {
+                                        fetch('https://ipapi.co/json/')
+                                            .then(res => res.json())
+                                            .then(data => callback(data.country_code))
+                                            .catch(() => callback("us"));
+                                    },
+                                    utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@17/build/js/utils.js" // para validación y formato
+                                });
+                            </script>
                             <div class="form-group">
                                 <label for="asunto">Subject*</label>
                                 <select id="asunto" name="asunto" required>
@@ -120,16 +136,7 @@
                             <div class="contact-item">
 
                             </div>
-                            <div class="contact-item">
-                                <div class="contact-icon">
-                                    <i class="far fa-envelope"></i>
-                                </div>
-                                <div class="contact-text">
-                                    <h4>Email</h4>
-                                    <p>catamaran360@gmail.com</p>
-                                    <p>Response within 24-48 hours</p>
-                                </div>
-                            </div>
+                            
                             <div class="contact-item">
                                 <div class="contact-icon">
                                     <i class="fab fa-instagram"></i>
@@ -138,7 +145,7 @@
                                     <h4>Instagram</h4>
                                     <p>@catamaran360</p>
                                     <p>Follow us to see our adventures</p>
-                                    <p>Quick response 9am - 7pm</p>
+                                    <p>Response 24/7</p>
 
                                 </div>
                             </div>
@@ -177,7 +184,8 @@
                     width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div class="map-info">
-                <p><i class="fas fa-info-circle"></i> The exact meeting point will be provided after booking confirmation.</p>
+                <p><i class="fas fa-info-circle"></i> The exact meeting point will be provided after booking
+                    confirmation.</p>
             </div>
         </div>
     </section>
@@ -193,7 +201,9 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>You can reach San Blas by 4x4 vehicle (approximately 2.5 hours) or by small plane (30 minutes). We offer ground transportation service for an additional cost of $50 USD per person.</p>
+                        <p>You can reach San Blas by 4x4 vehicle (approximately 2.5 hours) or by small plane (30
+                            minutes). We offer ground transportation service for an additional cost of $50 USD per
+                            person.</p>
                     </div>
                 </div>
 
@@ -203,7 +213,9 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>We recommend bringing: biodegradable sunscreen, insect repellent, hat, sunglasses, swimsuit, towel, light clothing, water shoes, camera (preferably waterproof), and cash for additional expenses.</p>
+                        <p>We recommend bringing: biodegradable sunscreen, insect repellent, hat, sunglasses, swimsuit,
+                            towel, light clothing, water shoes, camera (preferably waterproof), and cash for additional
+                            expenses.</p>
                     </div>
                 </div>
 
@@ -213,7 +225,8 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Coverage is limited in the archipelago. Some islands have mobile signal, but it's intermittent. We recommend disconnecting and enjoying the experience.</p>
+                        <p>Coverage is limited in the archipelago. Some islands have mobile signal, but it's
+                            intermittent. We recommend disconnecting and enjoying the experience.</p>
                     </div>
                 </div>
 
@@ -223,7 +236,9 @@
                         <span class="faq-toggle"><i class="fas fa-plus"></i></span>
                     </div>
                     <div class="faq-answer">
-                        <p>Yes, San Blas is a safe destination. The archipelago is administered by the Guna people, who maintain strict control over tourism. Our vessels comply with all maritime safety protocols.</p>
+                        <p>Yes, San Blas is a safe destination. The archipelago is administered by the Guna people, who
+                            maintain strict control over tourism. Our vessels comply with all maritime safety protocols.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -267,7 +282,7 @@
         </div>
     </footer>
 
-<div id="chatbot-widget">
+    <div id="chatbot-widget">
         <div id="chatbot-container" class="chatbot-hidden">
             <div id="chatbot-header">
                 <div class="chatbot-title">

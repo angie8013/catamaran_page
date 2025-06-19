@@ -959,9 +959,16 @@ img {
   margin-bottom: 50px;
 }
 
+.footer-logo {
+  text-align: center; /* Centra el contenido del div */
+}
+
 .footer-logo img {
   height: 50%;
   margin-bottom: 15px;
+  display: block; /* Hace que la imagen sea un elemento de bloque */
+  margin-left: auto; /* Centra horizontalmente */
+  margin-right: auto; /* Centra horizontalmente */
 }
 
 .footer-links h3,
@@ -1552,7 +1559,7 @@ img {
 }
 
 .step-icon {
-  width: 50px;
+  width: 120px;
   height: 50px;
   background-color: var(--primary-color);
   color: var(--light-text);
