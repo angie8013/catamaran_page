@@ -1494,6 +1494,9 @@ img {
   margin-bottom: 20px;
 }
 
+.additional{
+display: none;
+}
 .includes-section,
 .not-includes-section {
   margin-bottom: 20px;
@@ -3159,6 +3162,10 @@ img {
     height: 300px;
     min-height: 300px;
   }
+
+  .additional{
+    display: block;
+  }
 }
 
 @media (max-width: 480px) {
@@ -3243,6 +3250,10 @@ img {
     direction: ltr;
   }
 
+  .additional{
+    display: block
+    
+  }
   .experience-card.expanded {
     grid-template-columns: 1fr;
   }
