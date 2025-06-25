@@ -122,7 +122,7 @@
                 <!-- Day Trip Tab -->
                 <div class="tab-content active" id="pasadia-content">
                     <!-- San Blas Day Trip -->
-                    <div class="experience-card two-column-layout">
+                    <div class="experience-card">
                         <div class="left-column">
                             <div class="experience-image">
                                 <img src="../../img/tours_pasadia_san_blas.jpg" alt="San Blas Day Trip">
@@ -209,6 +209,7 @@
                                             </ul>
                                         </div>
                                     </div>
+
                                 </div>
                             </div>
 
@@ -216,16 +217,30 @@
                         </div>
                     </div>
 
-
-
-
-
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/galeria_amigos_5.jpg" alt="Sailboat Day Trip">
-                            <div class="experience-badge">Budget-Friendly</div>
+                        <!-- Imagen (lado derecho en desktop) -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/galeria_amigos_5.jpg" alt="Sailboat Day Trip">
+                                <div class="experience-badge">Budget-Friendly</div>
+                            </div>
+
+                            <!-- Información adicional colocada debajo de la imagen -->
+                            <div class="experience-details hidden" id="velero-adicional-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                    <p>Sailing on a sailboat offers a different and more traditional experience than
+                                        on a catamaran. You'll feel the sea breeze and the authentic spirit of
+                                        sailing while touring the San Blas islands.</p>
+                                    <p>During the day, we'll visit several islands where you can swim, snorkel,
+                                        relax on the beaches, or enjoy water activities. Lunch is served aboard or
+                                        on one of the islands, depending on the day's conditions.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Contenido -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Sailboat Day Trip</h3>
                                 <div class="price">$120 USD<span>per person</span></div>
@@ -258,11 +273,12 @@
                                     </div>
                                 </div>
 
-                                <button class="toggle-details-btn" data-target="velero-pasadia-details">
+                                <button class="toggle-details-btn" data-target="velero-detalles">
                                     See more details <i class="fas fa-chevron-down"></i>
                                 </button>
 
-                                <div id="velero-pasadia-details" class="experience-details hidden">
+                                <!-- Contenido expandible: includes / not included -->
+                                <div id="velero-detalles" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
                                             <h4><i class="fas fa-check-circle"></i> Includes</h4>
@@ -289,33 +305,45 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
-                                        <p>Sailing on a sailboat offers a different and more traditional experience than
-                                            on a catamaran. You'll feel the sea breeze and the authentic spirit of
-                                            sailing while touring the San Blas islands.</p>
-                                        <p>During the day, we'll visit several islands where you can swim, snorkel,
-                                            relax on the beaches, or enjoy water activities. Lunch is served aboard or
-                                            on one of the islands, depending on the day's conditions.</p>
-                                    </div>
                                 </div>
                             </div>
 
                             <a href="book-now.html" class="cta-btn primary">Book now</a>
                         </div>
                     </div>
+
+
                 </div>
 
                 <!-- Catamaran Overnight Tab -->
                 <div class="tab-content" id="hospedaje-content">
                     <!-- Private Catamaran -->
                     <div class="experience-card">
-                        <div class="experience-image">
-                            <img src="../../img/galeria_amigos_2.jpg" alt="Private Catamaran">
-                            <div class="experience-badge">Exclusive</div>
+                        <!-- Columna izquierda con imagen + info adicional -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/galeria_amigos_2.jpg" alt="Private Catamaran">
+                                <div class="experience-badge">Exclusive</div>
+                            </div>
+
+                            <!-- Información adicional debajo de la imagen -->
+                            <div class="experience-details hidden" id="catamaran-privado-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                    <p>Our private catamaran offers the ultimate San Blas experience. You'll have
+                                        the boat exclusively for you and your group, with a flexible itinerary that
+                                        can be adapted to your preferences.</p>
+                                    <p>You'll sleep in comfortable cabins and enjoy meals prepared aboard. During
+                                        the day, you can visit different islands, snorkel on coral reefs, relax on
+                                        deserted beaches, or simply enjoy the sun on deck.</p>
+                                    <p>Please note that our dog Sancho is part of the crew and will accompany you
+                                        during the experience.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Columna derecha con la descripción -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Private Catamaran</h3>
                                 <div class="price">$600 USD<span>per day (whole boat)</span></div>
@@ -353,6 +381,7 @@
                                     See more details <i class="fas fa-chevron-down"></i>
                                 </button>
 
+                                <!-- Sección de detalles que se muestra al expandir -->
                                 <div id="catamaran-privado-details" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
@@ -381,18 +410,6 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
-                                        <p>Our private catamaran offers the ultimate San Blas experience. You'll have
-                                            the boat exclusively for you and your group, with a flexible itinerary that
-                                            can be adapted to your preferences.</p>
-                                        <p>You'll sleep in comfortable cabins and enjoy meals prepared aboard. During
-                                            the day, you can visit different islands, snorkel on coral reefs, relax on
-                                            deserted beaches, or simply enjoy the sun on deck.</p>
-                                        <p>Please note that our dog Sancho is part of the crew and will accompany you
-                                            during the experience.</p>
-                                    </div>
                                 </div>
                             </div>
 
@@ -402,11 +419,32 @@
 
                     <!-- Shared Catamaran -->
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/tours/catamaran_compartido.jpg" alt="Shared Catamaran">
-                            <div class="experience-badge">Budget-Friendly</div>
+                        <!-- Columna derecha con imagen + info adicional -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/catamaran_compartido.jpg" alt="Shared Catamaran">
+                                <div class="experience-badge">Budget-Friendly</div>
+                            </div>
+
+                            <!-- Información adicional debajo de la imagen -->
+                            <div class="experience-details hidden" id="catamaran-compartido-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                    <p>The shared catamaran is an excellent option for solo travelers or couples who
+                                        want to enjoy the San Blas sailing experience without the cost of chartering
+                                        a whole boat.</p>
+                                    <p>You'll share the boat with other travelers (maximum 8 people total), creating
+                                        a social and fun atmosphere. The itinerary includes visits to several
+                                        islands, snorkeling activities, time to relax on beaches, and enjoying life
+                                        aboard.</p>
+                                    <p>Please note that our dog Sancho is part of the crew and will accompany you
+                                        during the experience.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Columna izquierda con el contenido -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Shared Catamaran</h3>
                                 <div class="price">$250 USD<span>per person/day</span></div>
@@ -444,6 +482,7 @@
                                     See more details <i class="fas fa-chevron-down"></i>
                                 </button>
 
+                                <!-- Detalles expandibles: includes + not included -->
                                 <div id="catamaran-compartido-details" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
@@ -472,36 +511,45 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
-                                        <p>The shared catamaran is an excellent option for solo travelers or couples who
-                                            want to enjoy the San Blas sailing experience without the cost of chartering
-                                            a whole boat.</p>
-                                        <p>You'll share the boat with other travelers (maximum 8 people total), creating
-                                            a social and fun atmosphere. The itinerary includes visits to several
-                                            islands, snorkeling activities, time to relax on beaches, and enjoying life
-                                            aboard.</p>
-                                        <p>Please note that our dog Sancho is part of the crew and will accompany you
-                                            during the experience.</p>
-                                    </div>
                                 </div>
                             </div>
 
                             <a href="book-now.html" class="cta-btn primary">Book now</a>
                         </div>
                     </div>
+
                 </div>
 
                 <!-- Sailboat Tab -->
                 <div class="tab-content" id="velero-content">
                     <!-- Shared Sailboat -->
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/tours/valero_compartido.jpg" alt="Shared Sailboat">
-                            <div class="experience-badge">Adventure</div>
+                        <!-- Columna derecha con imagen + info adicional -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/valero_compartido.jpg" alt="Shared Sailboat">
+                                <div class="experience-badge">Adventure</div>
+                            </div>
+
+                            <!-- Información adicional debajo de la imagen -->
+                            <div class="experience-details hidden" id="velero-compartido-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                    <p>The shared sailboat offers a more intimate and authentic experience than the
+                                        catamaran. The spaces are smaller but cozy, and the feeling of sailing is
+                                        incomparable.</p>
+                                    <p>You'll share the boat with other travelers (maximum 8 people total), creating
+                                        a family-like and close atmosphere. The itinerary includes visits to several
+                                        islands, snorkeling activities, time to relax on beaches, and enjoying life
+                                        aboard.</p>
+                                    <p>Please note that our dog Sancho is part of the crew and will accompany you
+                                        during the experience.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Columna izquierda con el contenido -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Shared Sailboat</h3>
                                 <div class="price">$200 USD<span>per person/day</span></div>
@@ -539,6 +587,7 @@
                                     See more details <i class="fas fa-chevron-down"></i>
                                 </button>
 
+                                <!-- Detalles expandibles: includes + not included -->
                                 <div id="velero-compartido-details" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
@@ -567,34 +616,42 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
-                                        <p>The shared sailboat offers a more intimate and authentic experience than the
-                                            catamaran. The spaces are smaller but cozy, and the feeling of sailing is
-                                            incomparable.</p>
-                                        <p>You'll share the boat with other travelers (maximum 8 people total), creating
-                                            a family-like and close atmosphere. The itinerary includes visits to several
-                                            islands, snorkeling activities, time to relax on beaches, and enjoying life
-                                            aboard.</p>
-                                        <p>Please note that our dog Sancho is part of the crew and will accompany you
-                                            during the experience.</p>
-                                    </div>
                                 </div>
                             </div>
 
                             <a href="book-now.html" class="cta-btn primary">Book now</a>
                         </div>
-
                     </div>
+
 
                     <!-- Private Sailboat -->
                     <div class="experience-card">
-                        <div class="experience-image">
-                            <img src="../../img/tours/velero_privado.jpg" alt="Private Sailboat">
-                            <div class="experience-badge">Exclusive</div>
+                        <!-- Columna izquierda: imagen + información adicional -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/velero_privado.jpg" alt="Private Sailboat">
+                                <div class="experience-badge">Exclusive</div>
+                            </div>
+
+                            <!-- Info adicional debajo de la imagen -->
+                            <div class="experience-details hidden" id="velero-privado-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
+                                    <p>Our private sailboat offers an intimate and romantic experience, perfect for
+                                        couples or small groups of friends. You'll have the boat exclusively for
+                                        you, with a flexible itinerary that can be adapted to your preferences.</p>
+                                    <p>Although the space is smaller than on a catamaran, the sailing experience is
+                                        incomparable. You'll sleep in comfortable cabins and enjoy meals prepared
+                                        aboard. During the day, you can visit different islands, snorkel on coral
+                                        reefs, relax on deserted beaches, or simply enjoy the sun on deck.</p>
+                                    <p>Please note that our dog Sancho is part of the crew and will accompany you
+                                        during the experience.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Columna derecha: contenido -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Private Sailboat</h3>
                                 <div class="price">$500 USD<span>per day (whole boat)</span></div>
@@ -631,6 +688,7 @@
                                     See more details <i class="fas fa-chevron-down"></i>
                                 </button>
 
+                                <!-- Contenido expandible -->
                                 <div id="velero-privado-details" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
@@ -659,25 +717,13 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Additional Information</h4>
-                                        <p>Our private sailboat offers an intimate and romantic experience, perfect for
-                                            couples or small groups of friends. You'll have the boat exclusively for
-                                            you, with a flexible itinerary that can be adapted to your preferences.</p>
-                                        <p>Although the space is smaller than on a catamaran, the sailing experience is
-                                            incomparable. You'll sleep in comfortable cabins and enjoy meals prepared
-                                            aboard. During the day, you can visit different islands, snorkel on coral
-                                            reefs, relax on deserted beaches, or simply enjoy the sun on deck.</p>
-                                        <p>Please note that our dog Sancho is part of the crew and will accompany you
-                                            during the experience.</p>
-                                    </div>
                                 </div>
                             </div>
 
                             <a href="book-now.html" class="cta-btn primary">Book now</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>

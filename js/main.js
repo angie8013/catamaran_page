@@ -789,7 +789,6 @@ function fixExperienceImagesSize() {
         img.style.display = "block"
 
         // Asegurar que el contenedor tenga una altura fija
-        imageContainer.style.height = "400px"
         imageContainer.style.overflow = "hidden"
       }
     })

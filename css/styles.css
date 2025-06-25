@@ -3234,6 +3234,10 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .experience-card .additional-info{
+    display: none;
+
+  }
   .experience-card.reverse {
     grid-template-columns: 1fr;
     direction: ltr;
@@ -3393,6 +3397,10 @@ img {
   .form-row {
     flex-direction: column;
   }
+    .experience-card .additional-info{
+    display: none;
+    
+  }
 }
 
 @media (max-width: 480px) {
@@ -3484,6 +3492,11 @@ img {
   .testimonial-banner .author-image {
     width: 50px;
     height: 50px;
+  }
+
+    .experience-card .additional-info{
+    display: none;
+    
   }
 }
 
@@ -3595,23 +3608,83 @@ img {
     page-break-after: avoid;
   }
 }
-.experience-card.two-column-layout {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-  align-items: start;
-}
-
-.experience-card .additional-info {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  margin-top: 20px;
-}
-
-@media screen and (max-width: 768px) {
   .experience-card.two-column-layout {
-    grid-template-columns: 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 30px;
+    align-items: start;
+  }
+
+  .experience-card .additional-info {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    margin-top: 20px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .experience-card.two-column-layout {.experience-card {
+    display: flex;
+    flex-direction: row;
+    height: 600px; /* Altura fija */
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+  }
+
+  .left-column {
+    flex: 1;
+    position: relative;
+  }
+
+  .right-column {
+    flex: 1;
+    padding: 1.5rem;
+    overflow-y: auto;
+  }
+
+  /* Imagen al 100% */
+  .experience-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Para dispositivos pequeños: stack layout */
+  @media (max-width: 768px) {
+    .experience-card {
+      flex-direction: column;
+      height: auto; /* se adapta al contenido */
+    }
+
+    .left-column, .right-column {
+      width: 100%;
+      height: auto;
+    }
+
+    .experience-image img {
+      height: 250px; /* altura fija para móviles */
+    }
+  }
+
+      grid-template-columns: 1fr;
+    }
+  }
+@media (max-width: 768px) {
+  .experience-details.expanded {
+    display: flex;
+    flex-direction: column-reverse; /* <- Este es el truco */
+    gap: 20px;
+  }
+
+  .additional-info {
+    order: 2;
+  }
+
+  .details-right-column {
+    order: 1;
   }
 }

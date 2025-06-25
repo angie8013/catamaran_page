@@ -122,11 +122,25 @@
                 <div class="tab-content active" id="pasadia-content">
                     <!-- Pasadía San Blas -->
                     <div class="experience-card">
-                        <div class="experience-image">
-                            <img src="../../img/tours_pasadia_san_blas.jpg" alt="Pasadía San Blas">
-                            <div class="experience-badge">Más Popular</div>
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours_pasadia_san_blas.jpg" alt="Pasadía San Blas">
+                                <div class="experience-badge">Más Popular</div>
+                            </div>
+                            <div id="pasadia-sanblas-details" class="experience-details hidden">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>Esta experiencia es ideal para quienes disponen de un solo día para conocer
+                                        San Blas. Visitaremos varias islas donde podrás disfrutar de playas de arena
+                                        blanca, aguas cristalinas y la belleza natural del archipiélago.</p>
+                                    <p>El almuerzo se sirve a bordo o en una de las islas, dependiendo de las
+                                        condiciones del día. Recomendamos traer protector solar biodegradable,
+                                        repelente, sombrero, gafas de sol, traje de baño, toalla y cámara
+                                        (preferiblemente resistente al agua).</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+                        <div class="experience-info right-column">
                             <div class="experience-header">
                                 <h3>Pasadía San Blas en catamarán</h3>
                                 <div class="price">$140 USD<span>por persona</span></div>
@@ -191,17 +205,6 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>Esta experiencia es ideal para quienes disponen de un solo día para conocer
-                                            San Blas. Visitaremos varias islas donde podrás disfrutar de playas de arena
-                                            blanca, aguas cristalinas y la belleza natural del archipiélago.</p>
-                                        <p>El almuerzo se sirve a bordo o en una de las islas, dependiendo de las
-                                            condiciones del día. Recomendamos traer protector solar biodegradable,
-                                            repelente, sombrero, gafas de sol, traje de baño, toalla y cámara
-                                            (preferiblemente resistente al agua).</p>
-                                    </div>
                                 </div>
                             </div>
 
@@ -209,12 +212,33 @@
                         </div>
                     </div>
 
+
+
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/galeria_amigos_5.jpg" alt="Velero Pasadía">
-                            <div class="experience-badge">Moderado </div>
+                        <!-- Imagen (lado derecho en desktop) -->
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/galeria_amigos_5.jpg" alt="Velero Pasadía">
+                                <div class="experience-badge">Moderado</div>
+                            </div>
+
+                            <!-- Información adicional colocada debajo de la imagen -->
+                            <div class="experience-details hidden" id="velero-adicional-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>Navegar en velero ofrece una experiencia diferente y más tradicional que en
+                                        catamarán. Sentirás la brisa marina y el auténtico espíritu de la navegación
+                                        a vela mientras recorres las islas de San Blas.</p>
+                                    <p>Durante el día, visitaremos varias islas donde podrás nadar, practicar
+                                        snorkel, relajarte en las playas o disfrutar de las actividades acuáticas.
+                                        El almuerzo se sirve a bordo o en una de las islas, dependiendo de las
+                                        condiciones del día.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <!-- Contenido -->
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Velero Pasadía</h3>
                                 <div class="price">$120 USD<span>por persona</span></div>
@@ -247,11 +271,12 @@
                                     </div>
                                 </div>
 
-                                <button class="toggle-details-btn" data-target="velero-pasadia-details">
+                                <button class="toggle-details-btn" data-target="velero-detalles">
                                     Ver más detalles <i class="fas fa-chevron-down"></i>
                                 </button>
 
-                                <div id="velero-pasadia-details" class="experience-details hidden">
+                                <!-- Contenido expandible: includes / not included -->
+                                <div id="velero-detalles" class="experience-details hidden">
                                     <div class="details-grid">
                                         <div class="includes-section">
                                             <h4><i class="fas fa-check-circle"></i> Incluye</h4>
@@ -278,34 +303,41 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>Navegar en velero ofrece una experiencia diferente y más tradicional que en
-                                            catamarán. Sentirás la brisa marina y el auténtico espíritu de la navegación
-                                            a vela mientras recorres las islas de San Blas.</p>
-                                        <p>Durante el día, visitaremos varias islas donde podrás nadar, practicar
-                                            snorkel, relajarte en las playas o disfrutar de las actividades acuáticas.
-                                            El almuerzo se sirve a bordo o en una de las islas, dependiendo de las
-                                            condiciones del día.</p>
-                                    </div>
                                 </div>
                             </div>
 
                             <a href="reserva.html" class="cta-btn primary">Reservar ahora</a>
                         </div>
                     </div>
+
+
                 </div>
 
                 <!-- Hospedaje Tab -->
                 <div class="tab-content" id="hospedaje-content">
                     <!-- Catamarán Privado -->
                     <div class="experience-card">
-                        <div class="experience-image">
-                            <img src="../../img/galeria_amigos_2.jpg" alt="Catamarán Privado">
-                            <div class="experience-badge">Exclusivo</div>
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/galeria_amigos_2.jpg" alt="Catamarán Privado">
+                                <div class="experience-badge">Exclusivo</div>
+                            </div>
+                            <div class="experience-details hidden" id="catamaran-privado-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>Nuestro catamarán privado ofrece la experiencia definitiva en San Blas.
+                                        Tendrás el barco exclusivamente para ti y tu grupo, con un itinerario
+                                        flexible que se puede adaptar a tus preferencias.</p>
+                                    <p>Dormirás en cómodos camarotes y disfrutarás de comidas preparadas a
+                                        bordo. Durante el día, podrás visitar diferentes islas, practicar snorkel en
+                                        arrecifes de coral, relajarte en playas desiertas o simplemente disfrutar
+                                        del sol en la cubierta.</p>
+                                    <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
+                                        acompañará durante la experiencia.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Catamarán Privado</h3>
                                 <div class="price">$600 USD<span>por día (barco completo)</span></div>
@@ -371,33 +403,38 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>Nuestro catamarán privado ofrece la experiencia definitiva en San Blas.
-                                            Tendrás el barco exclusivamente para ti y tu grupo, con un itinerario
-                                            flexible que se puede adaptar a tus preferencias.</p>
-                                        <p>Dormirás en cómodos camarotes y disfrutarás de comidas preparadas a bordo.
-                                            Durante el día, podrás visitar diferentes islas, practicar snorkel en
-                                            arrecifes de coral, relajarte en playas desiertas o simplemente disfrutar
-                                            del sol en la cubierta.</p>
-                                        <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
-                                            acompañará durante la experiencia.</p>
-                                    </div>
                                 </div>
                             </div>
-
                             <a href="reserva.html" class="cta-btn primary">Reservar ahora</a>
                         </div>
                     </div>
 
+
+
                     <!-- Catamarán Compartido -->
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/tours/catamaran_compartido.jpg" alt="Catamarán Compartido">
-                            <div class="experience-badge">Moderado </div>
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/catamaran_compartido.jpg" alt="Catamarán Compartido">
+                                <div class="experience-badge">Moderado </div>
+                            </div>
+                            <div class="experience-details hidden" id="catamaran-compartido-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>El catamarán compartido es una excelente opción para viajeros solitarios o
+                                        parejas que quieren disfrutar de la experiencia de navegar por San Blas sin
+                                        el costo de alquilar un barco completo.</p>
+                                    <p>Compartirás el barco con otros viajeros (máximo 8 personas en total), lo
+                                        que crea un ambiente social y divertido. El itinerario incluye visitas a
+                                        varias islas, actividades de snorkel, tiempo para relajarse en las playas y
+                                        disfrutar de la vida a bordo.</p>
+                                    <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
+                                        acompañará durante la experiencia.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Catamarán Compartido</h3>
                                 <div class="price">$250 USD<span>por persona/día</span></div>
@@ -463,25 +500,13 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>El catamarán compartido es una excelente opción para viajeros solitarios o
-                                            parejas que quieren disfrutar de la experiencia de navegar por San Blas sin
-                                            el costo de alquilar un barco completo.</p>
-                                        <p>Compartirás el barco con otros viajeros (máximo 8 personas en total), lo que
-                                            crea un ambiente social y divertido. El itinerario incluye visitas a varias
-                                            islas, actividades de snorkel, tiempo para relajarse en las playas y
-                                            disfrutar de la vida a bordo.</p>
-                                        <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
-                                            acompañará durante la experiencia.</p>
-                                    </div>
                                 </div>
                             </div>
-
                             <a href="reserva.html" class="cta-btn primary">Reservar ahora</a>
                         </div>
                     </div>
+
+
                 </div>
 
                 <!-- Velero Tab -->
@@ -491,11 +516,28 @@
 
                     <!-- Velero Compartido -->
                     <div class="experience-card reverse">
-                        <div class="experience-image">
-                            <img src="../../img/tours/valero_compartido.jpg" alt="Velero Compartido">
-                            <div class="experience-badge">Aventura</div>
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/valero_compartido.jpg" alt="Velero Compartido">
+                                <div class="experience-badge">Aventura</div>
+                            </div>
+                            <div class="experience-details hidden" id="velero-compartido-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>El velero compartido ofrece una experiencia más íntima y auténtica que el
+                                        catamarán. Los espacios son más reducidos pero acogedores, y la sensación de
+                                        navegar a vela es incomparable.</p>
+                                    <p>Compartirás el barco con otros viajeros (máximo 8 personas en total), creando
+                                        un ambiente familiar y cercano. El itinerario incluye visitas a varias
+                                        islas, actividades de snorkel, tiempo para relajarse en las playas y
+                                        disfrutar de la vida a bordo.</p>
+                                    <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
+                                        acompañará durante la experiencia.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Velero Compartido</h3>
                                 <div class="price">$200 USD<span>por persona/día</span></div>
@@ -561,34 +603,38 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>El velero compartido ofrece una experiencia más íntima y auténtica que el
-                                            catamarán. Los espacios son más reducidos pero acogedores, y la sensación de
-                                            navegar a vela es incomparable.</p>
-                                        <p>Compartirás el barco con otros viajeros (máximo 8 personas en total), creando
-                                            un ambiente familiar y cercano. El itinerario incluye visitas a varias
-                                            islas, actividades de snorkel, tiempo para relajarse en las playas y
-                                            disfrutar de la vida a bordo.</p>
-                                        <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
-                                            acompañará durante la experiencia.</p>
-                                    </div>
                                 </div>
                             </div>
-
                             <a href="reserva.html" class="cta-btn primary">Reservar ahora</a>
                         </div>
-
                     </div>
+
 
                     <!-- Velero Privado -->
                     <div class="experience-card">
-                        <div class="experience-image">
-                            <img src="../../img/tours/velero_privado.jpg" alt="Velero Privado">
-                            <div class="experience-badge">Exclusivo</div>
+                        <div class="left-column">
+                            <div class="experience-image">
+                                <img src="../../img/tours/velero_privado.jpg" alt="Velero Privado">
+                                <div class="experience-badge">Exclusivo</div>
+                            </div>
+                            <div class="experience-details hidden" id="velero-privado-info">
+                                <div class="additional-info">
+                                    <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
+                                    <p>Nuestro velero privado ofrece una experiencia íntima y romántica, perfecta
+                                        para parejas o pequeños grupos de amigos. Tendrás el barco exclusivamente
+                                        para ti, con un itinerario flexible que se puede adaptar a tus preferencias.</p>
+                                    <p>Aunque el espacio es más reducido que en un catamarán, la experiencia de
+                                        navegar a vela es incomparable. Dormirás en camarotes cómodos y disfrutarás
+                                        de comidas preparadas a bordo. Durante el día, podrás visitar diferentes
+                                        islas, practicar snorkel en arrecifes de coral, relajarte en playas
+                                        desiertas o simplemente disfrutar del sol en la cubierta.</p>
+                                    <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
+                                        acompañará durante la experiencia.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="experience-info">
+
+                        <div class="right-column experience-info">
                             <div class="experience-header">
                                 <h3>Velero Privado</h3>
                                 <div class="price">$500 USD<span>por día (barco completo)</span></div>
@@ -654,27 +700,12 @@
                                             </ul>
                                         </div>
                                     </div>
-
-                                    <div class="additional-info">
-                                        <h4><i class="fas fa-info-circle"></i> Información Adicional</h4>
-                                        <p>Nuestro velero privado ofrece una experiencia íntima y romántica, perfecta
-                                            para parejas o pequeños grupos de amigos. Tendrás el barco exclusivamente
-                                            para ti, con un itinerario flexible que se puede adaptar a tus preferencias.
-                                        </p>
-                                        <p>Aunque el espacio es más reducido que en un catamarán, la experiencia de
-                                            navegar a vela es incomparable. Dormirás en camarotes cómodos y disfrutarás
-                                            de comidas preparadas a bordo. Durante el día, podrás visitar diferentes
-                                            islas, practicar snorkel en arrecifes de coral, relajarte en playas
-                                            desiertas o simplemente disfrutar del sol en la cubierta.</p>
-                                        <p>Ten en cuenta que nuestro perro Sancho es parte de la tripulación y te
-                                            acompañará durante la experiencia.</p>
-                                    </div>
                                 </div>
                             </div>
-
                             <a href="reserva.html" class="cta-btn primary">Reservar ahora</a>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
