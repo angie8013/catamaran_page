@@ -12,7 +12,9 @@
   --border-radius: 4px;
   --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
+  
 }
+
 
 * {
   margin: 0;
@@ -3291,9 +3293,6 @@ display: none;
     display: block;
   }
 
-  .contact-info {
-    display: none;
-  }
 
   .slide-title {
     font-size: clamp(1.5rem, 8vw, 3rem);
@@ -3411,6 +3410,18 @@ display: none;
     .experience-card .additional-info{
     display: none;
     
+  }
+
+   .story-content {
+    grid-template-columns: 1fr;
+  }
+
+  .story-text {
+    order: 1;
+  }
+
+  .story-image {
+    order: 2;
   }
 }
 
