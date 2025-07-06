@@ -273,7 +273,7 @@ img {
   height: 100%;
   z-index: 0;
   background-color: rgba(0, 0, 0, 0.238);
-  background-blend-mode: darken;
+  background-blend-mode: #1a2a36;
 }
 
 /* Asegura que el contenido quede por encima */
@@ -301,7 +301,7 @@ img {
   /* <- AQUI */
   background-repeat: no-repeat;
   background-color: rgb(0 0 0 / 15%);
-  background-blend-mode: darken;
+  background-blend-mode: #1a2a36;
   /* <- AQUI */
 }
 
