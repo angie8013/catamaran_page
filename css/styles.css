@@ -156,7 +156,7 @@ img {
 
 .whatsapp-btn {
   background-color: var(--accent-color);
-  color: var(--dark-bg);
+  color: #1a2a36;
   padding: 10px 15px;
   border-radius: var(--border-radius);
   font-weight: 600;
@@ -203,7 +203,7 @@ img {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: var(--dark-bg);
+  background-color: #1a2a36;
   border-radius: var(--border-radius);
   padding: 10px 0;
   min-width: 120px;
@@ -1865,7 +1865,7 @@ display: none;
 
 .sustainability-list li {
   margin-bottom: 35px;
-  display: flex;
+  display: block;
   align-items: flex-start;
 }
 
@@ -2064,7 +2064,7 @@ display: none;
   top: var(--header-height);
   left: 0;
   width: 100%;
-  background-color: var(--dark-bg);
+  background-color: #1a2a36;
   padding: 20px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
@@ -2362,7 +2362,7 @@ display: none;
   top: 20px;
   right: 0;
   background-color: var(--accent-color);
-  color: var(--dark-bg);
+  color: #1a2a36;
   padding: 8px 15px;
   font-weight: 600;
   font-size: 0.9rem;
