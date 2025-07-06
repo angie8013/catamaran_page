@@ -596,7 +596,7 @@ function reorganizeContentForExpanded(targetContent) {
   const sendBtn = document.getElementById("send-btn")
   const chatbotMessages = document.getElementById("chatbot-messages")
   const badge = document.getElementById("notification-badge")
-  const clearBtn = document.getElementById("clear-btn") // Declare the clearBtn variable
+const clearBtn = document.getElementById("chatbot-clear");
 
   // Respuestas predefinidas del chatbot
   const botResponses = {
@@ -772,6 +772,20 @@ function reorganizeContentForExpanded(targetContent) {
       }, 2000)
     })
   }
+const chatbotToggle = document.getElementById("chatbot-toggle");
+
+if (chatbotToggle) {
+  chatbotToggle.addEventListener("click", () => {
+    window.toggleChat();
+  });
+}
+const chatbotClose = document.getElementById("chatbot-close");
+
+if (chatbotClose) {
+  chatbotClose.addEventListener("click", () => {
+    window.closeChat();
+  });
+}
 
   // Inicializar chatbot como oculto
   if (chatbotContainer) {
