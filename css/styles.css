@@ -3692,3 +3692,8 @@ display: none;
     order: 1;
   }
 }
+@media screen and (max-width: 767px) {
+  .boat-card.reverse .boat-slider-controls {
+    flex-direction: row-reverse;
+  }
+}
