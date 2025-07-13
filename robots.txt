@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://catamaran-360.com/sitemap.xml
