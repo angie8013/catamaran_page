@@ -14,48 +14,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="../../img/logocatamaran.jpg">
     <script type="application/ld+json">
-      {
-  "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": "Embarcaciones",
-  "url": "https://catamaran-360.com/Views/En/vessels.html",
-  "description": "Explore nuestra flota de catamaranes certificados diseñados para aventuras inolvidables en las Islas San Blas, Panamá.",
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
-      {
-        "@type": "Boat",
-        "name": "Catamarán",
-        "description": "Un espacioso catamarán perfecto para viajes familiares.",
+           {
+        "@context": "http://schema.org",
+        "@type": "Product",
+        "name": "Catamaran",
+        "description": "A spacious catamaran perfect for family trips.",
         "url": "https://catamaran-360.com/Views/En/vessels.html",
-        "image":  "https://catamaran-360.com/img/embarcaciones/catamaran/catamaran_atardecer.jpg",
-        "capacity": "8",
+        "image": "https://catamaran-360.com/img/embarcaciones/catamaran/catamaran_atardecer.jpg",
+        "additionalType": "https://schema.org/Boat",
+        "capacity": {
+            "@type": "QuantitativeValue",
+            "value": "8",
+            "unitText": "people"
+        },
         "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "240",
-          "itemCondition": "https://schema.org/NewCondition",
-          "availability": "https://schema.org/InStock"
+            "@type": "Offer",
+            "priceCurrency": "USD",
+            "price": "240",
+            "itemCondition": "https://schema.org/NewCondition",
+            "availability": "https://schema.org/InStock"
         }
-      },
-      {
-        "@type": "Boat",
-        "name": "La perla monocasco",
-        "description": "Ideal para escapadas románticas con vistas impresionantes.",
-        "url": "https://catamaran-360.com/Views/En/vessels.html",
-        "image": "https://catamaran-360.com/img/embarcaciones/la_perla/la_perla_2.jpg",
-        "capacity": "8",
-        "offers": {
-          "@type": "Offer",
-          "priceCurrency": "USD",
-          "price": "200",
-          "itemCondition": "https://schema.org/NewCondition",
-          "availability": "https://schema.org/InStock"
-        }
-      }
-    ]
-  }
-}
+    }
     </script>
 
 </head>
