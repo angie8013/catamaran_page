@@ -1,3 +1,4 @@
+ErrorDocument 404 /index.html
 <IfModule mod_rewrite.c>
     # ACTIVA EL MOTOR DE REESCRITURA
     RewriteEngine On
