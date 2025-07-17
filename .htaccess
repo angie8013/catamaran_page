@@ -1,4 +1,6 @@
-ErrorDocument 404 /404.html
+Redirect 301 /en/ https://catamaran-360.com/
+Redirect 301 /index.html https://catamaran-360.com/
+
 <IfModule mod_rewrite.c>
     # ACTIVA EL MOTOR DE REESCRITURA
     RewriteEngine On
