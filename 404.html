@@ -1,176 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-<meta charset="UTF-8">
-<title>404 - Navegando de vuelta a puerto seguro</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>404 - Navegando de vuelta a puerto seguro</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="img/logocatamaran.jpg">
+    <meta http-equiv="refresh" content="6;url=/index.html">
 
-<meta http-equiv="refresh" content="6;url=/index.html">
+    <style>
+        /* ===== 1. PALETA & VARIABLES ======================================= */
+        :root {
+            --cielo: #a8d5e5;
+            --sol: #fecd5b;
+            --mar-superior: #3b90ce;
+            --mar-intermedio: #2c7bb1;
+            --mar-profundo: #1d6195;
+            --espuma: rgba(255, 255, 255, 0.8);
+            --casco: #fdfdfd;
+            --vela: #e05f34;
+            /* Usando el color primario de tu web */
 
-<style>
-/* ===== 1. PALETA & VARIABLES ======================================= */
-:root {
-    --cielo: #a8d5e5;
-    --sol: #fecd5b;
-    --mar-superior: #3b90ce;
-    --mar-intermedio: #2c7bb1;
-    --mar-profundo: #1d6195;
-    --espuma: rgba(255, 255, 255, 0.8);
-    --casco: #fdfdfd;
-    --vela: #e05f34; /* Usando el color primario de tu web */
+            --duracion-viaje: 3s;
+            /* El viaje del barco dura 5 segundos */
+            --duracion-total: 4s;
+            /* La página redirige un segundo después */
+        }
 
-    --duracion-viaje: 3s; /* El viaje del barco dura 5 segundos */
-    --duracion-total: 4s; /* La página redirige un segundo después */
-}
+        /* ===== 2. ESCENA GENERAL Y ELEMENTOS DE FONDO ====================== */
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            overflow: hidden;
+            background: linear-gradient(to bottom, var(--cielo) 60%, var(--mar-superior));
+            font-family: 'Prompt', sans-serif, system-ui;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
 
-/* ===== 2. ESCENA GENERAL Y ELEMENTOS DE FONDO ====================== */
-html, body {
-    margin: 0;
-    height: 100%;
-    overflow: hidden;
-    background: linear-gradient(to bottom, var(--cielo) 60%, var(--mar-superior));
-    font-family: 'Prompt', sans-serif, system-ui;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    text-align: center;
-}
+        .sol {
+            position: absolute;
+            top: 10%;
+            left: 15%;
+            width: 100px;
+            height: 100px;
+            background: var(--sol);
+            border-radius: 50%;
+            box-shadow: 0 0 40px var(--sol);
+            z-index: 0;
+        }
 
-.sol {
-    position: absolute;
-    top: 10%;
-    left: 15%;
-    width: 100px;
-    height: 100px;
-    background: var(--sol);
-    border-radius: 50%;
-    box-shadow: 0 0 40px var(--sol);
-    z-index: 0;
-}
+        /* ===== 3. MENSAJE DE ERROR ========================================= */
+        .mensaje-404 {
+            z-index: 10;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            animation: aparecer var(--duracion-viaje) ease-out forwards;
+        }
 
-/* ===== 3. MENSAJE DE ERROR ========================================= */
-.mensaje-404 {
-    z-index: 10;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    opacity: 0;
-    animation: aparecer var(--duracion-viaje) ease-out forwards;
-}
+        @keyframes aparecer {
 
-@keyframes aparecer {
-    /* El mensaje ahora comenzará a aparecer en el 30% del tiempo total */
-    0%, 5% { opacity: 0; transform: translateY(20px); }
-    100%    { opacity: 1; transform: translateY(0); }
-}
+            /* El mensaje ahora comenzará a aparecer en el 30% del tiempo total */
+            0%,
+            5% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
 
-.mensaje-404 h1 {
-    font-size: clamp(3rem, 10vw, 6rem);
-    margin: 0;
-    font-weight: 700;
-}
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-.mensaje-404 p {
-    font-size: clamp(1rem, 4vw, 1.5rem);
-    margin: 0;
-}
+        .mensaje-404 h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            margin: 0;
+            font-weight: 700;
+        }
 
-/* ===== 4. ESCENA MARÍTIMA ========================================== */
-.escena-maritima {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60vh;
-    min-height: 250px;
-    overflow: hidden;
-}
+        .mensaje-404 p {
+            font-size: clamp(1rem, 4vw, 1.5rem);
+            margin: 0;
+        }
 
-.ola {
-    position: absolute;
-    left: 0;
-    bottom: -10px; /* Evitar líneas finas por antialiasing */
-    width: 200%; /* El doble de ancho para un bucle suave */
-    height: 150px;
-    background-size: 50% 100%;
-    animation: deslizar-ola linear infinite;
-}
+        /* ===== 4. ESCENA MARÍTIMA ========================================== */
+        .escena-maritima {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            min-height: 250px;
+            overflow: hidden;
+        }
 
-@keyframes deslizar-ola {
-    to { transform: translateX(-50%); }
-}
+        .ola {
+            position: absolute;
+            left: 0;
+            bottom: -10px;
+            /* Evitar líneas finas por antialiasing */
+            width: 200%;
+            /* El doble de ancho para un bucle suave */
+            height: 150px;
+            background-size: 50% 100%;
+            animation: deslizar-ola linear infinite;
+        }
 
-.ola-1 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V70 Q250,100 500,70 T1000,70 T1200,70 V0 Z" fill="%231d6195"/></svg>'); animation-duration: 12s; z-index: 1; }
-.ola-2 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V60 Q200,90 400,60 T800,60 T1200,60 V0 Z" fill="%232c7bb1"/></svg>'); animation-duration: 9s; z-index: 2; }
-.ola-3 { background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V50 Q150,80 300,50 T600,50 T900,50 T1200,50 V0 Z" fill="%233b90ce"/></svg>'); animation-duration: 6s; z-index: 3; }
+        @keyframes deslizar-ola {
+            to {
+                transform: translateX(-50%);
+            }
+        }
 
-/* ===== 5. CATAMARÁN ANIMADO ======================================== */
-.catamaran {
-    --ancho: 150px;
-    width: var(--ancho);
-    height: calc(var(--ancho) * 0.8);
-    position: absolute;
-    bottom: 120px;
-    left: calc(-1 * var(--ancho)); /* Empieza fuera de la pantalla */
-    z-index: 4;
-    animation: navegar var(--duracion-viaje) ease-in-out forwards,
-               cabeceo 2.5s ease-in-out infinite;
-    transform-origin: center bottom;
-}
+        .ola-1 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V70 Q250,100 500,70 T1000,70 T1200,70 V0 Z" fill="%231d6195"/></svg>');
+            animation-duration: 12s;
+            z-index: 1;
+        }
 
-@keyframes navegar {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(110vw); } /* Termina fuera de la pantalla */
-}
+        .ola-2 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V60 Q200,90 400,60 T800,60 T1200,60 V0 Z" fill="%232c7bb1"/></svg>');
+            animation-duration: 9s;
+            z-index: 2;
+        }
 
-@keyframes cabeceo {
-    0% { transform: rotate(-1.5deg) translateY(-5px); }
-    50% { transform: rotate(1.5deg) translateY(5px); }
-    100% { transform: rotate(-1.5deg) translateY(-5px); }
-}
+        .ola-3 {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none"><path d="M0,0 V50 Q150,80 300,50 T600,50 T900,50 T1200,50 V0 Z" fill="%233b90ce"/></svg>');
+            animation-duration: 6s;
+            z-index: 3;
+        }
 
-/* Dibujo del catamarán con SVG inline para mejor control */
-.catamaran svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(4px 4px 6px rgba(0,0,0,0.3));
-}
+        /* ===== 5. CATAMARÁN ANIMADO ======================================== */
+        .catamaran {
+            --ancho: 150px;
+            width: var(--ancho);
+            height: calc(var(--ancho) * 0.8);
+            position: absolute;
+            bottom: 120px;
+            left: calc(-1 * var(--ancho));
+            /* Empieza fuera de la pantalla */
+            z-index: 4;
+            animation: navegar var(--duracion-viaje) ease-in-out forwards,
+                cabeceo 2.5s ease-in-out infinite;
+            transform-origin: center bottom;
+        }
 
-</style>
+        @keyframes navegar {
+            0% {
+                transform: translateX(0);
+            }
 
-<script>
-    setTimeout(() => {
-        window.location.href = '/index.html';
-    }, 5500); // Un poco más que la animación para que se complete
-</script>
+            100% {
+                transform: translateX(110vw);
+            }
+
+            /* Termina fuera de la pantalla */
+        }
+
+        @keyframes cabeceo {
+            0% {
+                transform: rotate(-1.5deg) translateY(-5px);
+            }
+
+            50% {
+                transform: rotate(1.5deg) translateY(5px);
+            }
+
+            100% {
+                transform: rotate(-1.5deg) translateY(-5px);
+            }
+        }
+
+        /* Dibujo del catamarán con SVG inline para mejor control */
+        .catamaran svg {
+            width: 100%;
+            height: 100%;
+            filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, 0.3));
+        }
+    </style>
+
+    <script>
+        setTimeout(() => {
+            window.location.href = '/index.html';
+        }, 5500); // Un poco más que la animación para que se complete
+    </script>
 
 </head>
+
 <body>
 
-<div class="mensaje-404">
-    <h1>404</h1>
-    <p>¡Ups! Navegaste a aguas desconocidas.</p>
-    <p style="font-size: 1rem; opacity: 0.8;">Zarpando de vuelta a puerto seguro...</p>
-</div>
-
-<div class="sol"></div>
-
-<div class="escena-maritima">
-    <div class="ola ola-1"></div>
-    <div class="ola ola-2"></div>
-
-    <div class="catamaran">
-        <svg viewBox="0 0 150 120">
-            <rect x="72" y="10" width="6" height="80" fill="#4a4a4a"/>
-            <path d="M82 15 L 140 55 L 82 55 Z" fill="var(--vela)" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
-            <path d="M70 20 L 20 60 L 70 60 Z" fill="#f5f5f5" stroke="#000" stroke-width="1" stroke-linejoin="round"/>
-            <path d="M5 60 C 5 90, 35 90, 35 60 L 115 60 C 115 90, 145 90, 145 60 L 130 60 L 20 60 Z" fill="var(--casco)"/>
-            <rect x="35" y="55" width="80" height="10" fill="var(--casco)" stroke="#000" stroke-width="0.5"/>
-        </svg>
+    <div class="mensaje-404">
+        <h1>404</h1>
+        <p>¡Ups! Navegaste a aguas desconocidas.</p>
+        <p style="font-size: 1rem; opacity: 0.8;">Zarpando de vuelta a puerto seguro...</p>
     </div>
 
-    <div class="ola ola-3"></div> </div>
+    <div class="sol"></div>
+
+    <div class="escena-maritima">
+        <div class="ola ola-1"></div>
+        <div class="ola ola-2"></div>
+
+        <div class="catamaran">
+            <svg viewBox="0 0 150 120">
+                <rect x="72" y="10" width="6" height="80" fill="#4a4a4a" />
+                <path d="M82 15 L 140 55 L 82 55 Z" fill="var(--vela)" stroke="#000" stroke-width="1"
+                    stroke-linejoin="round" />
+                <path d="M70 20 L 20 60 L 70 60 Z" fill="#f5f5f5" stroke="#000" stroke-width="1"
+                    stroke-linejoin="round" />
+                <path d="M5 60 C 5 90, 35 90, 35 60 L 115 60 C 115 90, 145 90, 145 60 L 130 60 L 20 60 Z"
+                    fill="var(--casco)" />
+                <rect x="35" y="55" width="80" height="10" fill="var(--casco)" stroke="#000" stroke-width="0.5" />
+            </svg>
+        </div>
+
+        <div class="ola ola-3"></div>
+    </div>
 
 </body>
+
 </html>
