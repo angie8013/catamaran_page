@@ -4,43 +4,42 @@ Redirect 301 /css/globals.css https://catamaran-360.com/
 Redirect 301 /placeholder.svg https://catamaran-360.com/
 Redirect 301 /Views/Es/· https://catamaran-360.com/
 
-<IfModule mod_rewrite.c>
-    # ACTIVA EL MOTOR DE REESCRITURA
-    RewriteEngine On
 
-    # BLOQUEA EL ACCESO DIRECTO A ARCHIVOS DE SCRIPT SENSIBLES
-    # Previene que alguien pueda ejecutar tus archivos .php, .pl, etc., directamente desde el navegador.
+# Proteger contra XSS
+Header set X-XSS-Protection "1; mode=block"
+# Habilitar HSTS
+Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
+# Proteger contra el uso de contenido no seguro
+Header set Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none';"
+# Evitar que el contenido se muestre en un iframe
+Header set X-Frame-Options "DENY"
+# Evitar que el navegador almacene en caché las páginas
+Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+Header set Pragma "no-cache"
+
+
+
+
+
+
+
+
+
+
+
+
+
+<IfModule mod_rewrite.c>
+    <!-- # ACTIVA EL MOTOR DE REESCRITURA -->
+    RewriteEngine On
+    <!-- # BLOQUEA EL ACCESO DIRECTO A ARCHIVOS DE SCRIPT SENSIBLES
+    # Previene que alguien pueda ejecutar tus archivos .php, .pl, etc., directamente desde el navegador. -->
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule \.(php|pl|py|jsp|asp|sh|cgi)$ - [F,L]
 </IfModule>
 
-<IfModule mod_headers.c>
-    # CONFIGURACIÓN DE CABECERAS DE SEGURIDAD
 
-    # 1. Política de Seguridad de Contenido (CSP)
-    # Controla qué recursos (scripts, estilos, imágenes) puede cargar el navegador.
-    # He creado una política ajustada a tu sitio para que no rompa la funcionalidad.
-    Header set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://n8n.magnificapec.com https://ipapi.co; frame-src http://googleusercontent.com; object-src 'none'; upgrade-insecure-requests;"
-
-    # 2. Strict-Transport-Security (HSTS)
-    # Fuerza al navegador a usar siempre HTTPS. Descomenta la línea si tienes un certificado SSL válido.
-    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
-
-    # 3. X-Frame-Options
-    # Evita que tu sitio sea incrustado en un <iframe> en otras webs (protección contra clickjacking).
-    Header set X-Frame-Options "DENY"
-
-    # 4. X-XSS-Protection
-    # Activa el filtro anti-XSS en navegadores antiguos. Los modernos usan CSP.
-    Header set X-XSS-Protection "1; mode=block"
-
-    # 5. Control de Caché
-    # Evita que el navegador y proxies almacenen en caché el contenido.
-    # Útil para contenido dinámico, pero puede afectar el rendimiento en sitios estáticos.
-    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
-    Header set Pragma "no-cache"
-</IfModule>
 
 # EVITAR LISTADO DE DIRECTORIOS
 # Impide que los visitantes vean el contenido de las carpetas que no tienen un archivo index.
