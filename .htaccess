@@ -3,7 +3,7 @@ Redirect 301 /index.html https://catamaran-360.com/
 Redirect 301 /css/globals.css https://catamaran-360.com/
 Redirect 301 /placeholder.svg https://catamaran-360.com/
 Redirect 301 /Views/Es/· https://catamaran-360.com/
-
+Redirect 301 /index.html https://catamaran-360.com/Views/Es/
 
 # Proteger contra XSS
 # Header set X-XSS-Protection "1; mode=block"
