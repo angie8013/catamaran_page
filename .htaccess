@@ -10,12 +10,12 @@ Redirect 301 /Views/Es/index.html https://catamaran-360.com/Views/Es/
 # Habilitar HSTS
  Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 # Proteger contra el uso de contenido no seguro
- Header set Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none';"
+# Header set Content-Security-Policy "default-src 'self'; script-src 'self'; object-src 'none';"
 # Evitar que el contenido se muestre en un iframe
 # Header set X-Frame-Options "DENY"
 # Evitar que el navegador almacene en caché las páginas
-# Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
-# Header set Pragma "no-cache"
+ Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
+
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
