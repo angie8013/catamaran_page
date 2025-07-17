@@ -17,26 +17,11 @@ Header set X-Frame-Options "DENY"
 Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0"
 Header set Pragma "no-cache"
 
-
-
-
-
-
-
-
-
-
-
-
-
 <IfModule mod_rewrite.c>
-    <!-- # ACTIVA EL MOTOR DE REESCRITURA -->
-    RewriteEngine On
-    <!-- # BLOQUEA EL ACCESO DIRECTO A ARCHIVOS DE SCRIPT SENSIBLES
-    # Previene que alguien pueda ejecutar tus archivos .php, .pl, etc., directamente desde el navegador. -->
+    <!-- RewriteEngine On
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule \.(php|pl|py|jsp|asp|sh|cgi)$ - [F,L]
+    RewriteRule \.(php|pl|py|jsp|asp|sh|cgi)$ - [F,L] -->
 </IfModule>
 
 
